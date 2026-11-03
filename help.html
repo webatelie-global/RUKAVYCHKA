@@ -1,0 +1,400 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Help RUKAVYCHKA | Every Dog Deserves a Home</title>
+<style>
+:root {
+  --cream:#FFF6DF;
+  --blue:#DCEEFF;
+  --yellow:#F5D987;
+  --white:#FFFFFF;
+  --ink:#343434;
+  --muted:#696969;
+  --orange:#D98B45;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  color:var(--ink);
+  background:var(--cream);
+  line-height:1.65;
+}
+header{
+  background:white;
+  padding:17px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+  box-shadow:0 3px 14px rgba(0,0,0,.05);
+}
+.logo{
+  font-size:25px;
+  font-weight:800;
+  letter-spacing:1px;
+  color:var(--ink);
+  text-decoration:none;
+}
+.logo span{color:var(--orange)}
+nav{display:flex;gap:17px;align-items:center;flex-wrap:wrap}
+nav a{
+  text-decoration:none;
+  color:var(--ink);
+  font-size:14px;
+  font-weight:600;
+}
+nav a:hover,nav a.active{color:var(--orange)}
+.languages{display:flex;gap:6px}
+.languages button{
+  border:1px solid #ddd;
+  background:white;
+  border-radius:20px;
+  padding:7px 11px;
+  cursor:pointer;
+  font-weight:bold;
+}
+.languages button.active{
+  background:var(--yellow);
+  border-color:var(--yellow);
+}
+.hero{
+  background:var(--blue);
+  text-align:center;
+  padding:85px 20px 75px;
+}
+.hero h1{
+  font-size:clamp(36px,6vw,58px);
+  line-height:1.12;
+  margin:0 0 20px;
+}
+.hero p{
+  max-width:720px;
+  margin:auto;
+  font-size:19px;
+  color:#555;
+}
+.section{max-width:1100px;margin:auto;padding:70px 25px}
+.section h2{
+  font-size:clamp(27px,4vw,38px);
+  margin:0 0 15px;
+  line-height:1.2;
+}
+.intro{
+  max-width:760px;
+  margin:0 auto 35px;
+  text-align:center;
+}
+.intro p{font-size:17px;color:#666}
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.card{
+  background:white;
+  border-radius:23px;
+  padding:28px;
+  box-shadow:0 7px 22px rgba(0,0,0,.04);
+  transition:.2s;
+}
+.card:hover{transform:translateY(-4px)}
+.card-icon{font-size:34px;margin-bottom:12px}
+.card h3{font-size:21px;margin:0 0 10px}
+.card p{color:#666;margin:0}
+.highlight{
+  background:var(--yellow);
+  border-radius:25px;
+  padding:42px;
+  text-align:center;
+}
+.highlight p{
+  max-width:700px;
+  margin:10px auto 0;
+  color:#514a39;
+  font-size:17px;
+}
+.payment{
+  background:white;
+  border:2px dashed #d7c17e;
+  border-radius:25px;
+  padding:40px;
+  text-align:center;
+  margin-top:30px;
+}
+.payment h3{font-size:25px;margin:0 0 10px}
+.payment p{color:#666;max-width:650px;margin:0 auto 15px}
+.payment-note{
+  display:inline-block;
+  background:var(--cream);
+  border-radius:14px;
+  padding:12px 18px;
+  color:#806d3c;
+  font-weight:bold;
+}
+.sponsor{
+  background:var(--blue);
+  border-radius:25px;
+  padding:40px;
+  margin-top:30px;
+}
+.sponsor h2{margin-top:0}
+.sponsor p{color:#555}
+.button{
+  display:inline-block;
+  padding:14px 25px;
+  background:var(--ink);
+  color:white;
+  text-decoration:none;
+  border-radius:30px;
+  font-weight:bold;
+  margin:6px;
+  transition:.2s;
+}
+.button:hover{background:#555;transform:translateY(-3px)}
+.button.light{background:white;color:var(--ink)}
+.photo-placeholder{
+  background:#F8E9B8;
+  border:2px dashed #ddc77f;
+  border-radius:22px;
+  min-height:230px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:25px;
+  color:#79683c;
+  font-weight:bold;
+  margin-top:25px;
+}
+.cta{
+  text-align:center;
+  background:var(--yellow);
+  padding:65px 20px;
+}
+.cta h2{font-size:35px;margin:0 0 15px}
+.cta p{max-width:650px;margin:0 auto 20px;color:#514a39}
+footer{
+  text-align:center;
+  padding:30px 15px;
+  background:white;
+  color:#777;
+  font-size:14px;
+}
+@media(max-width:850px){
+  .cards{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:750px){
+  header{justify-content:center;text-align:center}
+  nav{justify-content:center;gap:12px}
+  nav a{font-size:13px}
+  .section{padding:50px 18px}
+  .cards{grid-template-columns:1fr}
+  .highlight,.payment,.sponsor{padding:27px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="index.html">RUKAVYCHKA<span>♥</span></a>
+  <nav>
+    <a href="index.html" data-i18n="navHome">Home</a>
+    <a href="our-dogs.html" data-i18n="navDogs">Our Dogs</a>
+    <a href="our-story.html" data-i18n="navStory">Our Story</a>
+    <a href="help.html" class="active" data-i18n="navHelp">Help</a>
+    <a href="shelter-life.html" data-i18n="navLife">Shelter Life</a>
+    <a href="adoptions.html" data-i18n="navAdoptions">Adoptions</a>
+    <a href="contacts.html" data-i18n="navContacts">Contacts</a>
+  </nav>
+  <div class="languages">
+    <button onclick="setLanguage('en')">EN</button>
+    <button onclick="setLanguage('uk')">UA</button>
+    <button onclick="setLanguage('ru')">RU</button>
+  </div>
+</header>
+
+<section class="hero">
+  <h1 data-i18n="heroTitle">Every helping hand matters</h1>
+  <p data-i18n="heroText">You can help RUKAVYCHKA in many ways. A little support, given with kindness, can make a big difference to a dog's life.</p>
+</section>
+
+<section class="section">
+  <div class="intro">
+    <h2 data-i18n="needsTitle">What the dogs need</h2>
+    <p data-i18n="needsIntro">Caring for a shelter means meeting everyday needs, whatever the weather or circumstances. Here are some of the most important ways to help.</p>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">🥣</div>
+      <h3 data-i18n="foodTitle">Food & nutrition</h3>
+      <p data-i18n="foodText">Food, grains and ingredients for preparing daily meals. A full bowl is one of the most basic ways to show care.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">💊</div>
+      <h3 data-i18n="medicalTitle">Medical care</h3>
+      <p data-i18n="medicalText">Medicines, vaccinations, parasite prevention, veterinary visits and treatment for dogs who need extra care.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🪵</div>
+      <h3 data-i18n="warmthTitle">Warmth & winter</h3>
+      <p data-i18n="warmthText">Firewood, insulation, repairs and materials to help keep the dogs warm and protected during cold months.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">⛽</div>
+      <h3 data-i18n="fuelTitle">Fuel & electricity</h3>
+      <p data-i18n="fuelText">Fuel and diesel for essential journeys and the generator, especially when electricity is unavailable.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🏠</div>
+      <h3 data-i18n="shelterTitle">Shelter repairs</h3>
+      <p data-i18n="shelterText">Materials and practical help to repair and improve kennels and make the shelter safer.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">❤️</div>
+      <h3 data-i18n="timeTitle">Time & kindness</h3>
+      <p data-i18n="timeText">Volunteering, sharing our story, helping with transport or simply telling someone about the dogs.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="highlight">
+    <h2 data-i18n="smallTitle">Small help. Real difference.</h2>
+    <p data-i18n="smallText">A bag of food, a box of medicine, a share on social media or a regular donation — every contribution helps us care for the dogs who are still waiting for a family.</p>
+  </div>
+
+  <div class="payment">
+    <h3 data-i18n="donateTitle">Make a donation</h3>
+    <p data-i18n="donateText">We are preparing clear and safe ways for supporters to send financial help directly to RUKAVYCHKA.</p>
+    <div class="payment-note" data-i18n="paymentNote">Donation details will be published here soon.</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="sponsor">
+    <h2 data-i18n="sponsorTitle">Sponsor a dog</h2>
+    <p data-i18n="sponsorText">Some dogs need extra time, medical care or help preparing for adoption. You can support a particular dog and become part of their journey towards a better life.</p>
+    <a href="our-dogs.html" class="button" data-i18n="sponsorButton">Meet the dogs</a>
+  </div>
+
+  <div class="photo-placeholder">
+    [PHOTO: A dog enjoying a meal, a warm bed or a caring moment]
+  </div>
+</section>
+
+<section class="cta">
+  <h2 data-i18n="ctaTitle">You can be part of the change</h2>
+  <p data-i18n="ctaText">If you cannot donate, sharing our website with friends, family or colleagues is also a wonderful way to help.</p>
+  <a href="our-dogs.html" class="button" data-i18n="ctaDogs">Meet our dogs</a>
+  <a href="contacts.html" class="button light" data-i18n="ctaContact">Contact us</a>
+</section>
+
+<footer>
+  <p>RUKAVYCHKA ♥ <span data-i18n="footerText">Every dog deserves a loving home.</span></p>
+</footer>
+
+<script>
+const translations = {
+en:{
+navHome:"Home",navDogs:"Our Dogs",navStory:"Our Story",navHelp:"Help",
+navLife:"Shelter Life",navAdoptions:"Adoptions",navContacts:"Contacts",
+heroTitle:"Every helping hand matters",
+heroText:"You can help RUKAVYCHKA in many ways. A little support, given with kindness, can make a big difference to a dog's life.",
+needsTitle:"What the dogs need",
+needsIntro:"Caring for a shelter means meeting everyday needs, whatever the weather or circumstances. Here are some of the most important ways to help.",
+foodTitle:"Food & nutrition",foodText:"Food, grains and ingredients for preparing daily meals. A full bowl is one of the most basic ways to show care.",
+medicalTitle:"Medical care",medicalText:"Medicines, vaccinations, parasite prevention, veterinary visits and treatment for dogs who need extra care.",
+warmthTitle:"Warmth & winter",warmthText:"Firewood, insulation, repairs and materials to help keep the dogs warm and protected during cold months.",
+fuelTitle:"Fuel & electricity",fuelText:"Fuel and diesel for essential journeys and the generator, especially when electricity is unavailable.",
+shelterTitle:"Shelter repairs",shelterText:"Materials and practical help to repair and improve kennels and make the shelter safer.",
+timeTitle:"Time & kindness",timeText:"Volunteering, sharing our story, helping with transport or simply telling someone about the dogs.",
+smallTitle:"Small help. Real difference.",
+smallText:"A bag of food, a box of medicine, a share on social media or a regular donation — every contribution helps us care for the dogs who are still waiting for a family.",
+donateTitle:"Make a donation",
+donateText:"We are preparing clear and safe ways for supporters to send financial help directly to RUKAVYCHKA.",
+paymentNote:"Donation details will be published here soon.",
+sponsorTitle:"Sponsor a dog",
+sponsorText:"Some dogs need extra time, medical care or help preparing for adoption. You can support a particular dog and become part of their journey towards a better life.",
+sponsorButton:"Meet the dogs",
+ctaTitle:"You can be part of the change",
+ctaText:"If you cannot donate, sharing our website with friends, family or colleagues is also a wonderful way to help.",
+ctaDogs:"Meet our dogs",ctaContact:"Contact us",
+footerText:"Every dog deserves a loving home."
+},
+uk:{
+navHome:"Головна",navDogs:"Наші собаки",navStory:"Наша історія",navHelp:"Допомогти",
+navLife:"Життя притулку",navAdoptions:"Прилаштування",navContacts:"Контакти",
+heroTitle:"Важлива кожна допомога",
+heroText:"Ви можете допомогти RUKAVYCHKA багатьма способами. Навіть невелика підтримка, зроблена з добротою, може змінити життя собаки.",
+needsTitle:"Що потрібно собакам",
+needsIntro:"Турбота про притулок означає щоденне забезпечення потреб за будь-якої погоди та обставин. Ось найважливіші способи допомогти.",
+foodTitle:"Їжа та харчування",foodText:"Корм, крупи та продукти для приготування щоденних страв. Повна миска — один із найпростіших проявів турботи.",
+medicalTitle:"Медична допомога",medicalText:"Ліки, вакцинація, захист від паразитів, візити до ветеринара та лікування собак, які потребують особливої уваги.",
+warmthTitle:"Тепло та зима",warmthText:"Дрова, утеплення, ремонт і матеріали, які допоможуть захистити собак від холоду.",
+fuelTitle:"Пальне та електрика",fuelText:"Пальне й дизель для необхідних поїздок та генератора, особливо коли немає електроенергії.",
+shelterTitle:"Ремонт притулку",shelterText:"Матеріали та практична допомога для ремонту й покращення вольєрів, щоб зробити притулок безпечнішим.",
+timeTitle:"Час і доброта",timeText:"Волонтерство, поширення нашої історії, допомога з транспортом або просто розповідь про собак іншим людям.",
+smallTitle:"Невелика допомога. Справжні зміни.",
+smallText:"Мішок корму, ліки, допис у соцмережах або регулярна пожертва — кожен внесок допомагає піклуватися про собак, які ще чекають на родину.",
+donateTitle:"Зробити пожертву",
+donateText:"Ми готуємо зрозумілі та безпечні способи, за допомогою яких можна буде надіслати фінансову допомогу безпосередньо RUKAVYCHKA.",
+paymentNote:"Реквізити для пожертв з'являться тут незабаром.",
+sponsorTitle:"Станьте опікуном собаки",
+sponsorText:"Деяким собакам потрібен додатковий час, медична допомога або підготовка до прилаштування. Ви можете підтримати конкретного собаку та стати частиною його шляху до кращого життя.",
+sponsorButton:"Познайомитися із собаками",
+ctaTitle:"Ви можете стати частиною змін",
+ctaText:"Якщо ви не можете зробити пожертву, поширення нашого сайту серед друзів, родини чи колег також стане чудовою допомогою.",
+ctaDogs:"Наші собаки",ctaContact:"Зв'язатися з нами",
+footerText:"Кожен собака заслуговує на люблячий дім."
+},
+ru:{
+navHome:"Главная",navDogs:"Наши собаки",navStory:"Наша история",navHelp:"Помочь",
+navLife:"Жизнь приюта",navAdoptions:"Усыновления",navContacts:"Контакты",
+heroTitle:"Важна каждая помощь",
+heroText:"Вы можете помочь RUKAVYCHKA разными способами. Даже небольшая поддержка, сделанная от души, может изменить жизнь собаки.",
+needsTitle:"Что нужно собакам",
+needsIntro:"Забота о приюте означает ежедневное обеспечение потребностей в любую погоду и при любых обстоятельствах. Вот самые важные способы помочь.",
+foodTitle:"Еда и питание",foodText:"Корм, крупы и продукты для приготовления ежедневной еды. Полная миска — один из самых простых способов проявить заботу.",
+medicalTitle:"Медицинская помощь",medicalText:"Лекарства, вакцинация, защита от паразитов, визиты к ветеринару и лечение собак, которым нужна особая забота.",
+warmthTitle:"Тепло и зима",warmthText:"Дрова, утепление, ремонт и материалы, которые помогут защитить собак от холода.",
+fuelTitle:"Топливо и электричество",fuelText:"Топливо и дизель для необходимых поездок и генератора, особенно когда нет электричества.",
+shelterTitle:"Ремонт приюта",shelterText:"Материалы и практическая помощь для ремонта и улучшения вольеров, чтобы сделать приют безопаснее.",
+timeTitle:"Время и доброта",timeText:"Волонтёрство, распространение нашей истории, помощь с транспортом или просто рассказ о собаках другим людям.",
+smallTitle:"Небольшая помощь. Настоящие перемены.",
+smallText:"Мешок корма, лекарства, публикация в соцсетях или регулярное пожертвование — каждый вклад помогает заботиться о собаках, которые всё ещё ждут семью.",
+donateTitle:"Сделать пожертвование",
+donateText:"Мы готовим понятные и безопасные способы, с помощью которых можно будет отправить финансовую помощь напрямую RUKAVYCHKA.",
+paymentNote:"Реквизиты для пожертвований появятся здесь позже.",
+sponsorTitle:"Станьте опекуном собаки",
+sponsorText:"Некоторым собакам нужно дополнительное время, медицинская помощь или подготовка к пристройству. Вы можете поддержать конкретную собаку и стать частью её пути к лучшей жизни.",
+sponsorButton:"Познакомиться с собаками",
+ctaTitle:"Вы можете стать частью перемен",
+ctaText:"Если вы не можете сделать пожертвование, распространить наш сайт среди друзей, семьи или коллег — тоже прекрасный способ помочь.",
+ctaDogs:"Наши собаки",ctaContact:"Связаться с нами",
+footerText:"Каждая собака заслуживает любящий дом."
+}
+};
+
+function setLanguage(lang){
+  document.documentElement.lang=lang==="uk"?"uk":lang;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key=el.getAttribute("data-i18n");
+    if(translations[lang][key])el.textContent=translations[lang][key];
+  });
+  document.querySelectorAll(".languages button").forEach(btn=>{
+    btn.classList.toggle("active",btn.textContent.toLowerCase()===lang);
+  });
+  localStorage.setItem("rukavichka-language",lang);
+}
+setLanguage(localStorage.getItem("rukavichka-language")||"en");
+</script>
+
+</body>
+</html>
