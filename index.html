@@ -1,293 +1,746 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#fffdf7">
-  <meta name="description" content="RUKAVYCHKA animal shelter in Ukraine. Every life deserves a loving home.">
-  <title>RUKAVYCHKA — Animal Shelter</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>RUKAVYCHKA — Every Dog Deserves a Home</title>
 
-  <style>
-    :root {
-      --cream: #fffdf7;
-      --white: #ffffff;
-      --blue: #dcecf3;
-      --blue-dark: #a9cbdc;
-      --yellow: #f5e8b5;
-      --text: #273b46;
-      --muted: #71818a;
-      --line: #e9e8df;
-      --radius: 18px;
-    }
+<meta name="description" content="Rukavichka is a shelter giving rescued dogs in Ukraine a second chance at life and a loving home.">
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<style>
+/* =========================
+   1. GENERAL SETTINGS
+========================= */
 
-    html {
-      scroll-behavior: smooth;
-    }
+:root {
+    --cream: #FFF6DF;
+    --blue: #DCEEFF;
+    --yellow: #F5D987;
+    --white: #FFFFFF;
+    --dark: #34352F;
+    --brown: #8B7051;
+    --muted: #77766E;
+}
 
-    body {
-      font-family: "DM Sans", sans-serif;
-      background: var(--cream);
-      color: var(--text);
-      line-height: 1.6;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+html {
+    scroll-behavior: smooth;
+}
 
-    img {
-      display: block;
-      width: 100%;
-      object-fit: cover;
-    }
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    line-height: 1.6;
+}
 
-    button {
-      font: inherit;
-    }
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
-    .container {
-      width: min(1120px, calc(100% - 40px));
-      margin: 0 auto;
-    }
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
 
-    .topbar {
-      background: var(--white);
-      border-bottom: 1px solid var(--line);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+/* =========================
+   2. HEADER
+========================= */
 
-    .nav {
-      min-height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
+header {
+    width: 100%;
+    background: var(--cream);
+    padding: 20px 6%;
+    position: relative;
+    z-index: 100;
+}
 
-    .logo {
-      font-family: "Manrope", sans-serif;
-      font-size: 23px;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-    }
+.navbar {
+    max-width: 1400px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
 
-    .logo span {
-      color: #83aebe;
-    }
+/* LOGO */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
+
+.logo-icon {
+    font-size: 29px;
+}
+
+/* NAVIGATION */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #B38A42;
+}
+
+/* LANGUAGE SWITCHER */
+
+.languages {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.languages button {
+    background: transparent;
+    border: none;
+    padding: 6px 8px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--muted);
+}
+
+.languages button.active {
+    background: var(--yellow);
+    color: var(--dark);
+}
+
+/* MOBILE BUTTON */
+
+.menu-toggle {
+    display: none;
+    border: none;
+    background: transparent;
+    font-size: 28px;
+    color: var(--dark);
+}
+
+/* =========================
+   3. HERO SECTION
+========================= */
+
+.hero {
+    max-width: 1400px;
+    min-height: 620px;
+    margin: 15px auto 0;
+    padding: 55px 6%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 50px;
+}
+
+.hero-content {
+    max-width: 580px;
+}
+
+.eyebrow {
+    display: inline-block;
+    background: var(--blue);
+    padding: 9px 17px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(44px, 5vw, 72px);
+    line-height: 1.08;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: #B38A42;
+    font-style: italic;
+}
+
+.hero-description {
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 440px;
+    margin-bottom: 32px;
+    line-height: 1.9;
+}
+
+/* BUTTONS */
+
+.hero-buttons {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 25px;
+    border-radius: 35px;
+    font-size: 13px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background: var(--yellow);
+    color: var(--dark);
+}
+
+.btn-secondary {
+    background: var(--white);
+    border: 1px solid #E8DFC9;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 18px rgba(0,0,0,0.08);
+}
+
+/* HERO IMAGE */
+
+.hero-image {
+    position: relative;
+    height: 490px;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 48% 48% 25px 25px;
+}
+
+/* IMAGE LABEL */
+
+.image-label {
+    position: absolute;
+    bottom: 25px;
+    left: -25px;
+    background: var(--white);
+    padding: 17px 22px;
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.image-label span {
+    display: block;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: normal;
+}
+
+/* =========================
+   4. INTRODUCTION
+========================= */
+
+.intro {
+    background: var(--white);
+    padding: 75px 6%;
+    text-align: center;
+}
+
+.intro-content {
+    max-width: 750px;
+    margin: auto;
+}
+
+.intro h2 {
+    font-family: Georgia, serif;
+    font-size: 37px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.intro p {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+/* =========================
+   5. FOOTER
+========================= */
+
+footer {
+    padding: 30px 6%;
+    text-align: center;
+    background: var(--cream);
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* =========================
+   6. MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 1050px) {
 
     .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 27px;
-      font-size: 14px;
-      font-weight: 600;
+        gap: 13px;
     }
 
-    .nav-links a:hover {
-      color: #719eaf;
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .language {
-      border: 1px solid var(--line);
-      background: var(--white);
-      color: var(--text);
-      padding: 8px 10px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    .menu-button {
-      display: none;
-      border: 0;
-      background: transparent;
-      font-size: 25px;
-      cursor: pointer;
-      color: var(--text);
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 13px 22px;
-      border-radius: 9px;
-      font-size: 14px;
-      font-weight: 700;
-      transition: 0.2s ease;
-      border: 1px solid transparent;
-      cursor: pointer;
-    }
-
-    .button-primary {
-      background: var(--text);
-      color: white;
-    }
-
-    .button-primary:hover {
-      background: #405b68;
-    }
-
-    .button-light {
-      background: var(--white);
-      border-color: var(--line);
-      color: var(--text);
-    }
-
-    .button-light:hover {
-      background: var(--blue);
+    .nav-links a {
+        font-size: 11px;
     }
 
     .hero {
-      padding: 72px 0 80px;
+        gap: 30px;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 55px;
+    .hero-image {
+        height: 420px;
+    }
+}
+
+@media (max-width: 760px) {
+
+    header {
+        padding: 17px 5%;
     }
 
-    .eyebrow {
-      display: inline-block;
-      color: #648b9b;
-      background: var(--blue);
-      border-radius: 30px;
-      padding: 7px 13px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 22px;
+    .navbar {
+        flex-wrap: wrap;
     }
 
-    h1, h2, h3 {
-      font-family: "Manrope", sans-serif;
-      line-height: 1.15;
+    .logo {
+        font-size: 21px;
     }
 
-    h1 {
-      font-size: clamp(42px, 5vw, 66px);
-      letter-spacing: -2px;
-      margin-bottom: 22p;
-
-    h1 span {
-      color: #83aebe;
+    .menu-toggle {
+        display: block;
+        order: 3;
     }
 
-    .hero-text {
-      max-width: 490px;
-      color: var(--muted);
-      font-size: 17px;
-      margin-bottom: 30px;
+    .languages {
+        margin-left: auto;
+        order: 2;
+    }
+
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        order: 4;
+        padding-top: 15px;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        width: 100%;
+        padding: 13px 5px;
+        border-top: 1px solid #E9DFC9;
+        font-size: 14px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 45px 6% 60px;
+        gap: 35px;
+    }
+
+    .hero-content {
+        text-align: center;
+        margin: auto;
+    }
+
+    .hero h1 {
+        font-size: 46px;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
+        justify-content: center;
     }
 
-.hero-image {
-      height: 480px;
-      border-radius: 22px;
-      overflow: hidden;
-      background: var(--blue);
+    .hero-image {
+        height: 370px;
+        width: 100%;
     }
 
-    .hero-image img {
-      height: 100%;
+    .image-label {
+        left: 10px;
     }
 
-    .section {
-      padding: 82px 0;
+    .intro {
+        padding: 55px 7%;
     }
 
-    .section-heading {
-      max-width: 650px;
-      margin-bottom: 38px;
+    .intro h2 {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .logo {
+        font-size: 17px;
+        letter-spacing: 1px;
     }
 
-    .section-heading h2 {
-      font-size: clamp(30px, 4vw, 43px);
-      letter-spacing: -1px;
-      margin-bottom: 15px;
+    .hero h1 {
+        font-size: 39px;
     }
 
-    .section-heading p {
-      color: var(--muted);
-      font-size: 16px;
+    .hero-image {
+        height: 300px;
     }
 
-    .about {
-      background: var(--blue);
+    .btn {
+        padding: 13px 18px;
     }
+}
 
-    .about-grid {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 55px;
-      align-items: center;
-    }
-
-    .about-image {
-      height: 390px;
-      border-radius: var(--radius);
-      overflow: hidden;
-    }
-
-    .about-image img {
-      height: 100%;
-    }
-
-    .about-copy h2 {
-      font-size: clamp(30px, 4vw, 42px);
-      margin-bottom: 20px;
-    }
-
-    .about-copy p {
-      color: #526873;
-      margin-bottom: 15px;
-    }
-
-    .mission-strip {
-      background: var(--yellow);
-      padding: 30px 0;
-    }
-
-    .mission-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-    }
-
-    .mission-inner h2 {
-      font-size: 24px;
-    }
-
-    .mission-inner p {
-      color: #68757a;
-      max-width: 500px;
-    }
-  </style>
+</style>
 </head>
+
+<body>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+    <div class="navbar">
+
+        <a href="index.html" class="logo">
+            <span class="logo-icon">🐾</span>
+            RUKAVYCHKA
+        </a>
+
+        <nav class="nav-links" id="navigation">
+
+            <a href="index.html" data-i18n="home">Home</a>
+
+            <a href="our-dogs.html" data-i18n="dogs">Our dogs</a>
+
+            <a href="our-story.html" data-i18n="story">Our story</a>
+
+            <a href="help.html" data-i18n="help">Help us</a>
+
+            <a href="shelter-life.html" data-i18n="life">Shelter life</a>
+
+            <a href="adoptions.html" data-i18n="adoptions">Adoptions</a>
+
+            <a href="contacts.html" data-i18n="contacts">Contacts</a>
+
+        </nav>
+
+        <div class="languages">
+            <button class="active" onclick="changeLanguage('en')">EN</button>
+            <button onclick="changeLanguage('ua')">UA</button>
+            <button onclick="changeLanguage('ru')">RU</button>
+        </div>
+
+        <button class="menu-toggle"
+                onclick="toggleMenu()"
+                aria-label="Open navigation"
+                aria-expanded="false"
+                id="menuButton">
+            ☰
+        </button>
+
+    </div>
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<main>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="eyebrow" data-i18n="eyebrow">
+            A SHELTER FULL OF LOVE
+        </div>
+
+        <h1 data-i18n="headline">
+            Every dog deserves a
+            <span>loving home.</span>
+        </h1>
+
+        <p class="hero-description" data-i18n="description">
+            Behind every rescued dog is a story.
+            At Rukavichka, we give abandoned and
+            war-affected animals a safe place,
+            care and a second chance at life.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="our-dogs.html"
+               class="btn btn-primary"
+               data-i18n="adopt">
+                Find your friend →
+            </a>
+
+            <a href="help.html"
+               class="btn btn-secondary"
+               data-i18n="support">
+                Support our shelter
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-image">
+
+        <img
+            src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=1000&auto=format&fit=crop&q=85"
+            alt="A beautiful dog waiting for a loving home"
+        >
+
+        <div class="image-label">
+            <span data-i18n="label">A NEW BEGINNING</span>
+            Every life matters 🐾
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     INTRODUCTION
+========================= -->
+
+<section class="intro">
+
+    <div class="intro-content">
+
+        <h2 data-i18n="introTitle">
+            More than a shelter.
+            A place of hope.
+        </h2>
+
+        <p data-i18n="introText">
+            Rukavichka is a home for dogs who have
+            experienced abandonment, hardship and war.
+            Every day, we care for them, feed them,
+            protect them and help them find loving families.
+            Because every dog deserves a chance.
+        </p>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <p>
+        © 2026 RUKAVYCHKA.
+        <span data-i18n="footer">Made with love for every paw.</span>
+        🐾
+    </p>
+
+</footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+/* MOBILE MENU */
+
+function toggleMenu() {
+
+    const navigation = document.getElementById("navigation");
+    const button = document.getElementById("menuButton");
+
+    navigation.classList.toggle("open");
+
+    button.setAttribute(
+        "aria-expanded",
+        navigation.classList.contains("open")
+    );
+
+    button.textContent =
+        navigation.classList.contains("open") ? "✕" : "☰";
+}
+
+
+/* THREE LANGUAGES */
+
+const translations = {
+
+    en: {
+        home: "Home",
+        dogs: "Our dogs",
+        story: "Our story",
+        help: "Help us",
+        life: "Shelter life",
+        adoptions: "Adoptions",
+        contacts: "Contacts",
+
+        eyebrow: "A SHELTER FULL OF LOVE",
+        headline: 'Every dog deserves a <span>loving home.</span>',
+
+        description:
+            "Behind every rescued dog is a story. At Rukavichka, we give abandoned and war-affected animals a safe place, care and a second chance at life.",
+
+        adopt: "Find your friend →",
+        support: "Support our shelter",
+
+        label: "A NEW BEGINNING",
+
+        introTitle: "More than a shelter. A place of hope.",
+
+        introText:
+            "Rukavichka is a home for dogs who have experienced abandonment, hardship and war. Every day, we care for them, feed them, protect them and help them find loving families. Because every dog deserves a chance.",
+
+        footer: "Made with love for every paw."
+    },
+
+
+    ua: {
+        home: "Головна",
+        dogs: "Наші собаки",
+        story: "Наша історія",
+        help: "Допомогти",
+        life: "Життя притулку",
+        adoptions: "Прилаштування",
+        contacts: "Контакти",
+
+        eyebrow: "ПРИТУЛОК, СПОВНЕНИЙ ЛЮБОВІ",
+
+        headline: 'Кожна собака заслуговує на <span>люблячий дім.</span>',
+
+        description:
+            "За кожною врятованою собакою стоїть своя історія. У Рукавичці ми даруємо покинутим тваринам та тваринам, які постраждали від війни, безпеку, турботу та другий шанс на життя.",
+
+        adopt: "Знайти друга →",
+        support: "Підтримати притулок",
+
+        label: "НОВИЙ ПОЧАТОК",
+
+        introTitle: "Більше, ніж притулок. Місце надії.",
+
+        introText:
+            "Рукавичка — це дім для собак, які пережили покинутість, труднощі та війну. Щодня ми піклуємося про них, годуємо, захищаємо та допомагаємо знайти люблячі родини. Адже кожна собака заслуговує на шанс.",
+
+        footer: "Створено з любов’ю до кожної лапки."
+    },
+
+
+    ru: {
+        home: "Главная",
+        dogs: "Наши собаки",
+        story: "Наша история",
+        help: "Помочь",
+        life: "Жизнь приюта",
+        adoptions: "Усыновления",
+        contacts: "Контакты",
+
+        eyebrow: "ПРИЮТ, НАПОЛНЕННЫЙ ЛЮБОВЬЮ",
+
+        headline: 'Каждая собака заслуживает <span>любящий дом.</span>',
+
+        description:
+            "За каждой спасённой собакой стоит своя история. В Рукавичке мы дарим брошенным животным и животным, пострадавшим от войны, безопасность, заботу и второй шанс на жизнь.",
+
+        adopt: "Найти друга →",
+        support: "Поддержать приют",
+
+        label: "НОВОЕ НАЧАЛО",
+
+        introTitle: "Больше, чем приют. Место надежды.",
+
+        introText:
+            "Рукавичка — это дом для собак, переживших предательство, трудности и войну. Каждый день мы заботимся о них, кормим, защищаем и помогаем найти любящие семьи. Ведь каждая собака заслуживает шанса.",
+
+        footer: "Создано с любовью к каждой лапке."
+    }
+
+};
+
+
+/* CHANGE LANGUAGE */
+
+function changeLanguage(language) {
+
+    const elements = document.querySelectorAll("[data-i18n]");
+
+    elements.forEach(element => {
+
+        const key = element.getAttribute("data-i18n");
+
+        if (translations[language][key]) {
+
+            element.innerHTML = translations[language][key];
+
+        }
+
+    });
+
+    document.documentElement.lang =
+        language === "ua" ? "uk" : language;
+
+    document.querySelectorAll(".languages button").forEach(button => {
+
+        button.classList.remove("active");
+
+        if (button.textContent.toLowerCase() === language) {
+            button.classList.add("active");
+        }
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
