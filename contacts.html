@@ -1,0 +1,404 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact RUKAVYCHKA</title>
+<style>
+:root{
+  --cream:#FFF6DF;
+  --blue:#DCEEFF;
+  --yellow:#F5D987;
+  --white:#FFFFFF;
+  --ink:#343434;
+  --orange:#D98B45;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  color:var(--ink);
+  background:var(--cream);
+  line-height:1.6;
+}
+header{
+  background:white;
+  padding:17px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+  box-shadow:0 3px 14px rgba(0,0,0,.05);
+}
+.logo{
+  font-size:25px;
+  font-weight:800;
+  letter-spacing:1px;
+  color:var(--ink);
+  text-decoration:none;
+}
+.logo span{color:var(--orange)}
+nav{display:flex;gap:17px;align-items:center;flex-wrap:wrap}
+nav a{
+  text-decoration:none;
+  color:var(--ink);
+  font-size:14px;
+  font-weight:600;
+}
+nav a:hover,nav a.active{color:var(--orange)}
+.languages{display:flex;gap:6px}
+.languages button{
+  border:1px solid #ddd;
+  background:white;
+  border-radius:20px;
+  padding:7px 11px;
+  cursor:pointer;
+  font-weight:bold;
+}
+.languages button.active{
+  background:var(--yellow);
+  border-color:var(--yellow);
+}
+.hero{
+  background:var(--blue);
+  text-align:center;
+  padding:75px 20px;
+}
+.hero h1{
+  font-size:clamp(36px,6vw,56px);
+  line-height:1.15;
+  margin:0 0 15px;
+}
+.hero p{
+  max-width:700px;
+  margin:auto;
+  font-size:19px;
+  color:#555;
+}
+.section{
+  max-width:1050px;
+  margin:auto;
+  padding:65px 25px;
+}
+.intro{
+  text-align:center;
+  max-width:720px;
+  margin:0 auto 35px;
+}
+.intro h2,.form-heading h2{
+  font-size:clamp(27px,4vw,36px);
+  margin:0 0 12px;
+}
+.intro p{color:#666;font-size:17px}
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+.contact-card{
+  background:white;
+  border-radius:22px;
+  padding:27px 20px;
+  text-align:center;
+  box-shadow:0 7px 22px rgba(0,0,0,.04);
+}
+.contact-icon{font-size:34px;margin-bottom:8px}
+.contact-card h3{margin:5px 0;font-size:21px}
+.contact-card p{color:#666;margin:5px 0 12px}
+.contact-card a{
+  color:#a7662c;
+  font-weight:bold;
+  text-decoration:none;
+  overflow-wrap:anywhere;
+}
+.contact-card a:hover{text-decoration:underline}
+.contact-value{
+  color:#a7662c;
+  font-weight:bold;
+  overflow-wrap:anywhere;
+}
+.form-wrap{
+  background:white;
+  border-radius:26px;
+  padding:40px;
+  box-shadow:0 8px 28px rgba(0,0,0,.05);
+}
+.form-heading{text-align:center;margin-bottom:28px}
+.form-heading p{color:#666;max-width:650px;margin:0 auto}
+form{max-width:700px;margin:auto}
+.field{margin-bottom:19px}
+label{
+  display:block;
+  font-weight:bold;
+  margin-bottom:7px;
+}
+input,select,textarea{
+  width:100%;
+  border:1px solid #ddd;
+  background:#fffdf8;
+  border-radius:12px;
+  padding:14px 15px;
+  font:inherit;
+  color:var(--ink);
+}
+input:focus,select:focus,textarea:focus{
+  outline:2px solid #dceeff;
+  border-color:#8ab6d8;
+}
+textarea{min-height:155px;resize:vertical}
+.submit{
+  border:0;
+  background:var(--ink);
+  color:white;
+  padding:15px 30px;
+  border-radius:30px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.2s;
+}
+.submit:hover{background:#555;transform:translateY(-2px)}
+.form-note{
+  font-size:13px;
+  color:#888;
+  margin-top:15px;
+}
+.privacy{
+  background:var(--yellow);
+  border-radius:22px;
+  padding:28px;
+  text-align:center;
+  margin-top:30px;
+}
+.privacy p{margin:0;color:#514a39}
+footer{
+  text-align:center;
+  padding:30px 15px;
+  background:white;
+  color:#777;
+  font-size:14px;
+}
+@media(max-width:800px){
+  .contact-grid{grid-template-columns:1fr}
+}
+@media(max-width:750px){
+  header{justify-content:center;text-align:center}
+  nav{justify-content:center;gap:12px}
+  nav a{font-size:13px}
+  .section{padding:48px 18px}
+  .form-wrap{padding:25px 18px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="index.html">RUKAVYCHKA<span>♥</span></a>
+  <nav>
+    <a href="index.html" data-i18n="navHome">Home</a>
+    <a href="our-dogs.html" data-i18n="navDogs">Our Dogs</a>
+    <a href="our-story.html" data-i18n="navStory">Our Story</a>
+    <a href="help.html" data-i18n="navHelp">Help</a>
+    <a href="shelter-life.html" data-i18n="navLife">Shelter Life</a>
+    <a href="adoptions.html" data-i18n="navAdoptions">Adoptions</a>
+    <a href="contacts.html" class="active" data-i18n="navContacts">Contacts</a>
+  </nav>
+  <div class="languages">
+    <button onclick="setLanguage('en')">EN</button>
+    <button onclick="setLanguage('uk')">UA</button>
+    <button onclick="setLanguage('ru')">RU</button>
+  </div>
+</header>
+
+<section class="hero">
+  <h1 data-i18n="heroTitle">Let's stay in touch</h1>
+  <p data-i18n="heroText">Have a question about adoption, donations, volunteering or one of our dogs? We would love to hear from you.</p>
+</section>
+
+<section class="section">
+  <div class="intro">
+    <h2 data-i18n="contactTitle">Contact RUKAVYCHKA</h2>
+    <p data-i18n="contactIntro">You can reach us through the channels below or send us a message using the contact form.</p>
+  </div>
+
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="contact-icon">✈️</div>
+      <h3>Telegram</h3>
+      <p data-i18n="telegramText">Message us on Telegram</p>
+      <a href="https://t.me/TAalissa" target="_blank" rel="noopener">@TAalissa</a>
+    </div>
+
+    <div class="contact-card">
+      <div class="contact-icon">💬</div>
+      <h3>WhatsApp</h3>
+      <p data-i18n="whatsappText">Our WhatsApp contact</p>
+      <div class="contact-value">@alissaTT</div>
+    </div>
+
+    <div class="contact-card">
+      <div class="contact-icon">✉️</div>
+      <h3>Email</h3>
+      <p data-i18n="emailText">Write to us by email</p>
+      <a href="mailto:alissa.dogrescue@protonmail.com">alissa.dogrescue@protonmail.com</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact-form">
+  <div class="form-wrap">
+    <div class="form-heading">
+      <h2 data-i18n="formTitle">Send us a message</h2>
+      <p data-i18n="formIntro">Fill in the form and your message will be sent to the RUKAVYCHKA contact email.</p>
+    </div>
+
+    <form action="https://formsubmit.co/alissa.dogrescue@protonmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New message from RUKAVYCHKA website">
+      <input type="hidden" name="_template" value="table">
+
+      <!-- Hidden anti-spam field -->
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+      <div class="field">
+        <label for="name" data-i18n="nameLabel">Your name *</label>
+        <input id="name" type="text" name="name" required placeholder="Your name">
+      </div>
+
+      <div class="field">
+        <label for="email" data-i18n="emailLabel">Your email *</label>
+        <input id="email" type="email" name="email" required placeholder="you@example.com">
+      </div>
+
+      <div class="field">
+        <label for="topic" data-i18n="topicLabel">What would you like to contact us about?</label>
+        <select id="topic" name="topic" required>
+          <option value="" data-i18n="chooseOption">Choose a topic</option>
+          <option value="Adoption" data-i18n="topicAdoption">Adoption</option>
+          <option value="Donation or sponsorship" data-i18n="topicDonation">Donation or sponsorship</option>
+          <option value="Volunteering" data-i18n="topicVolunteer">Volunteering</option>
+          <option value="A specific dog" data-i18n="topicDog">A specific dog</option>
+          <option value="Other" data-i18n="topicOther">Something else</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="message" data-i18n="messageLabel">Your message *</label>
+        <textarea id="message" name="message" required placeholder="Write your message here..."></textarea>
+      </div>
+
+      <button class="submit" type="submit" data-i18n="sendButton">Send message</button>
+
+      <p class="form-note" data-i18n="formNote">Please check your email address before sending so we can reply to you.</p>
+    </form>
+  </div>
+
+  <div class="privacy">
+    <p data-i18n="privacyText">Your message is sent to our contact email so we can respond to your enquiry. Please do not include passwords or sensitive personal information.</p>
+  </div>
+</section>
+
+<footer>
+  <p>RUKAVYCHKA ♥ <span data-i18n="footerText">Every dog deserves a loving home.</span></p>
+</footer>
+
+<script>
+const translations={
+en:{
+navHome:"Home",navDogs:"Our Dogs",navStory:"Our Story",navHelp:"Help",navLife:"Shelter Life",navAdoptions:"Adoptions",navContacts:"Contacts",
+heroTitle:"Let's stay in touch",
+heroText:"Have a question about adoption, donations, volunteering or one of our dogs? We would love to hear from you.",
+contactTitle:"Contact RUKAVYCHKA",
+contactIntro:"You can reach us through the channels below or send us a message using the contact form.",
+telegramText:"Message us on Telegram",
+whatsappText:"Our WhatsApp contact",
+emailText:"Write to us by email",
+formTitle:"Send us a message",
+formIntro:"Fill in the form and your message will be sent to the RUKAVYCHKA contact email.",
+nameLabel:"Your name *",
+emailLabel:"Your email *",
+topicLabel:"What would you like to contact us about?",
+chooseOption:"Choose a topic",
+topicAdoption:"Adoption",
+topicDonation:"Donation or sponsorship",
+topicVolunteer:"Volunteering",
+topicDog:"A specific dog",
+topicOther:"Something else",
+messageLabel:"Your message *",
+sendButton:"Send message",
+formNote:"Please check your email address before sending so we can reply to you.",
+privacyText:"Your message is sent to our contact email so we can respond to your enquiry. Please do not include passwords or sensitive personal information.",
+footerText:"Every dog deserves a loving home."
+},
+uk:{
+navHome:"Головна",navDogs:"Наші собаки",navStory:"Наша історія",navHelp:"Допомогти",navLife:"Життя притулку",navAdoptions:"Прилаштування",navContacts:"Контакти",
+heroTitle:"Будьмо на зв'язку",
+heroText:"Маєте запитання про прилаштування, пожертви, волонтерство чи одного з наших собак? Ми будемо раді вам відповісти.",
+contactTitle:"Контакти RUKAVYCHKA",
+contactIntro:"Зв'язатися з нами можна через наведені нижче канали або надіслати повідомлення через форму.",
+telegramText:"Напишіть нам у Telegram",
+whatsappText:"Наш контакт у WhatsApp",
+emailText:"Напишіть нам на пошту",
+formTitle:"Надішліть нам повідомлення",
+formIntro:"Заповніть форму, і ваше повідомлення буде надіслано на контактну електронну адресу RUKAVYCHKA.",
+nameLabel:"Ваше ім'я *",
+emailLabel:"Ваша електронна пошта *",
+topicLabel:"З якого питання ви хочете зв'язатися?",
+chooseOption:"Оберіть тему",
+topicAdoption:"Прилаштування",
+topicDonation:"Пожертва або спонсорство",
+topicVolunteer:"Волонтерство",
+topicDog:"Конкретний собака",
+topicOther:"Інше",
+messageLabel:"Ваше повідомлення *",
+sendButton:"Надіслати повідомлення",
+formNote:"Перевірте адресу електронної пошти перед відправленням, щоб ми могли вам відповісти.",
+privacyText:"Ваше повідомлення надсилається на нашу контактну пошту, щоб ми могли відповісти на ваше звернення. Будь ласка, не вказуйте паролі чи конфіденційну особисту інформацію.",
+footerText:"Кожен собака заслуговує на люблячий дім."
+},
+ru:{
+navHome:"Главная",navDogs:"Наши собаки",navStory:"Наша история",navHelp:"Помочь",navLife:"Жизнь приюта",navAdoptions:"Усыновления",navContacts:"Контакты",
+heroTitle:"Давайте будем на связи",
+heroText:"Есть вопросы об усыновлении, пожертвованиях, волонтёрстве или одной из наших собак? Мы будем рады вам ответить.",
+contactTitle:"Контакты RUKAVYCHKA",
+contactIntro:"Вы можете связаться с нами через указанные каналы или отправить сообщение через форму.",
+telegramText:"Напишите нам в Telegram",
+whatsappText:"Наш контакт в WhatsApp",
+emailText:"Напишите нам на почту",
+formTitle:"Отправьте нам сообщение",
+formIntro:"Заполните форму, и ваше сообщение будет отправлено на контактную электронную почту RUKAVYCHKA.",
+nameLabel:"Ваше имя *",
+emailLabel:"Ваш email *",
+topicLabel:"По какому вопросу вы хотите связаться?",
+chooseOption:"Выберите тему",
+topicAdoption:"Усыновление собаки",
+topicDonation:"Пожертвование или спонсорство",
+topicVolunteer:"Волонтёрство",
+topicDog:"Конкретная собака",
+topicOther:"Другое",
+messageLabel:"Ваше сообщение *",
+sendButton:"Отправить сообщение",
+formNote:"Пожалуйста, проверьте свой email перед отправкой, чтобы мы могли вам ответить.",
+privacyText:"Ваше сообщение отправляется на нашу контактную почту, чтобы мы могли ответить на ваше обращение. Пожалуйста, не указывайте пароли или конфиденциальную личную информацию.",
+footerText:"Каждая собака заслуживает любящий дом."
+}
+};
+
+function setLanguage(lang){
+  document.documentElement.lang=lang==="uk"?"uk":lang;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key=el.getAttribute("data-i18n");
+    if(translations[lang][key])el.textContent=translations[lang][key];
+  });
+  document.querySelectorAll(".languages button").forEach(btn=>{
+    btn.classList.toggle("active",btn.textContent.toLowerCase()===lang);
+  });
+  localStorage.setItem("rukavichka-language",lang);
+}
+setLanguage(localStorage.getItem("rukavichka-language")||"en");
+</script>
+
+</body>
+</html>
