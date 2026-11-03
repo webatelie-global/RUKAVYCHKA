@@ -1,0 +1,449 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Story | RUKAVYCHKA</title>
+<style>
+:root {
+  --cream:#FFF6DF;
+  --blue:#DCEEFF;
+  --yellow:#F5D987;
+  --white:#FFFFFF;
+  --ink:#343434;
+  --muted:#696969;
+  --orange:#D98B45;
+}
+* {box-sizing:border-box}
+html {scroll-behavior:smooth}
+body {
+  margin:0;
+  font-family:Arial, sans-serif;
+  color:var(--ink);
+  background:var(--cream);
+  line-height:1.65;
+}
+header {
+  background:var(--white);
+  padding:17px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+  box-shadow:0 3px 14px rgba(0,0,0,.05);
+}
+.logo {
+  font-size:25px;
+  font-weight:800;
+  letter-spacing:1px;
+  color:var(--ink);
+  text-decoration:none;
+}
+.logo span {color:var(--orange)}
+nav {
+  display:flex;
+  gap:17px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+nav a {
+  text-decoration:none;
+  color:var(--ink);
+  font-size:14px;
+  font-weight:600;
+}
+nav a:hover, nav a.active {color:var(--orange)}
+.languages {display:flex;gap:6px}
+.languages button {
+  border:1px solid #ddd;
+  background:white;
+  border-radius:20px;
+  padding:7px 11px;
+  cursor:pointer;
+  font-weight:bold;
+}
+.languages button.active {
+  background:var(--yellow);
+  border-color:var(--yellow);
+}
+.hero {
+  text-align:center;
+  padding:85px 20px 75px;
+  background:var(--blue);
+}
+.hero h1 {
+  font-size:clamp(36px,6vw,58px);
+  line-height:1.12;
+  margin:0 0 20px;
+}
+.hero p {
+  max-width:700px;
+  margin:auto;
+  font-size:19px;
+  color:#555;
+}
+.section {
+  max-width:1100px;
+  margin:auto;
+  padding:75px 25px;
+}
+.section h2 {
+  font-size:clamp(27px,4vw,38px);
+  margin:0 0 20px;
+  line-height:1.2;
+}
+.section p {color:#555;font-size:17px}
+.story-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:38px;
+  align-items:center;
+}
+.photo-placeholder {
+  min-height:330px;
+  background:var(--blue);
+  border-radius:25px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:25px;
+  color:#64798b;
+  font-weight:bold;
+  border:2px dashed #a9c5dc;
+}
+.photo-placeholder.yellow {background:#F8E9B8;border-color:#ddc77f;color:#79683c}
+.story-card {
+  background:white;
+  border-radius:25px;
+  padding:35px;
+  box-shadow:0 8px 25px rgba(0,0,0,.04);
+}
+.quote {
+  background:var(--yellow);
+  padding:45px 25px;
+  text-align:center;
+  border-radius:25px;
+  margin:15px 0;
+}
+.quote p {
+  max-width:780px;
+  margin:0 auto;
+  font-size:clamp(21px,3vw,29px);
+  font-weight:bold;
+  color:#48402e;
+}
+.daily {
+  background:var(--blue);
+  border-radius:25px;
+  padding:40px;
+}
+.daily h2 {margin-top:0}
+.daily-list {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+  margin-top:25px;
+}
+.daily-item {
+  background:white;
+  padding:22px;
+  border-radius:18px;
+}
+.daily-item strong {display:block;margin-bottom:7px}
+.foster {
+  background:white;
+  border-radius:25px;
+  padding:38px;
+  margin-top:35px;
+}
+.cta {
+  text-align:center;
+  background:var(--yellow);
+  padding:65px 20px;
+}
+.cta h2 {font-size:35px;margin:0 0 15px}
+.cta p {max-width:650px;margin:0 auto 25px;color:#514a39}
+.button {
+  display:inline-block;
+  padding:14px 25px;
+  background:var(--ink);
+  color:white;
+  text-decoration:none;
+  border-radius:30px;
+  font-weight:bold;
+  margin:5px;
+  transition:.2s;
+}
+.button:hover {transform:translateY(-3px);background:#555}
+footer {
+  text-align:center;
+  padding:30px 15px;
+  background:white;
+  color:#777;
+  font-size:14px;
+}
+@media(max-width:750px) {
+  header {justify-content:center;text-align:center}
+  nav {justify-content:center;gap:12px}
+  nav a {font-size:13px}
+  .story-grid {grid-template-columns:1fr}
+  .daily-list {grid-template-columns:1fr}
+  .section {padding:55px 18px}
+  .photo-placeholder {min-height:240px}
+  .story-card,.daily,.foster {padding:25px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="index.html">RUKAVYCHKA<span>♥</span></a>
+  <nav>
+    <a href="index.html" data-i18n="navHome">Home</a>
+    <a href="our-dogs.html" data-i18n="navDogs">Our Dogs</a>
+    <a href="our-story.html" class="active" data-i18n="navStory">Our Story</a>
+    <a href="help.html" data-i18n="navHelp">Help</a>
+    <a href="shelter-life.html" data-i18n="navLife">Shelter Life</a>
+    <a href="adoptions.html" data-i18n="navAdoptions">Adoptions</a>
+    <a href="contacts.html" data-i18n="navContacts">Contacts</a>
+  </nav>
+  <div class="languages">
+    <button onclick="setLanguage('en')">EN</button>
+    <button onclick="setLanguage('uk')">UA</button>
+    <button onclick="setLanguage('ru')">RU</button>
+  </div>
+</header>
+
+<section class="hero">
+  <h1 data-i18n="heroTitle">A story of care, courage and hope</h1>
+  <p data-i18n="heroText">Behind every rescued dog is a story. Behind RUKAVYCHKA are two people who chose to make a difference.</p>
+</section>
+
+<section class="section">
+  <div class="story-grid">
+    <div>
+      <h2 data-i18n="beginTitle">It started with compassion</h2>
+      <p data-i18n="beginP1">RUKAVYCHKA began on the property of Valentin and Vera, long before the full-scale war changed life in Ukraine. They opened their hearts and their home to dogs who had nowhere else to go.</p>
+      <p data-i18n="beginP2">What began as a personal act of kindness gradually became a shelter — a place where abandoned and vulnerable dogs could find food, safety and care.</p>
+    </div>
+    <div class="photo-placeholder">
+      [PHOTO: Valentin and Vera / the first days of the shelter]
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="quote">
+    <p data-i18n="quote">“Every dog deserves to feel safe, loved and wanted.”</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="story-grid">
+    <div class="photo-placeholder yellow">
+      [PHOTO: Valentin caring for the dogs]
+    </div>
+    <div>
+      <h2 data-i18n="peopleTitle">Valentin and Vera</h2>
+      <p data-i18n="peopleP1">Valentin is over 70, but his days are still shaped by the needs of the dogs. He often starts around five in the morning and continues until late at night.</p>
+      <p data-i18n="peopleP2">He prepares food, feeds the dogs, cleans, checks on them and takes care of their everyday needs. Vera is now bedridden, but she remains an important part of the story and heart of RUKAVYCHKA.</p>
+      <p data-i18n="peopleP3">They do not do this for recognition. They do it because these animals depend on them.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="daily">
+    <h2 data-i18n="dailyTitle">A day at RUKAVYCHKA</h2>
+    <p data-i18n="dailyIntro">A shelter is not just a place. It is a thousand small acts of care, repeated every single day.</p>
+    <div class="daily-list">
+      <div class="daily-item">
+        <strong data-i18n="daily1Title">Preparing meals</strong>
+        <span data-i18n="daily1Text">Large pots of porridge and food prepared for hungry dogs.</span>
+      </div>
+      <div class="daily-item">
+        <strong data-i18n="daily2Title">Cleaning and care</strong>
+        <span data-i18n="daily2Text">Keeping living spaces clean, checking on every dog and making sure they are comfortable.</span>
+      </div>
+      <div class="daily-item">
+        <strong data-i18n="daily3Title">Health and treatment</strong>
+        <span data-i18n="daily3Text">Vaccinations, parasite prevention, medicines and attention when a dog needs help.</span>
+      </div>
+      <div class="daily-item">
+        <strong data-i18n="daily4Title">Love and attention</strong>
+        <span data-i18n="daily4Text">A kind voice, a gentle touch, a game or simply someone sitting nearby.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="story-grid">
+    <div>
+      <h2 data-i18n="warTitle">When the war changed everything</h2>
+      <p data-i18n="warP1">The war brought new dangers and enormous challenges. Shelling damaged parts of the shelter, and the dogs became vulnerable to frightening sounds, cold weather and uncertainty.</p>
+      <p data-i18n="warP2">Repairs, heating, food and everyday care became even harder to manage. Yet Valentin continued doing what he could for the animals who depended on him.</p>
+      <p data-i18n="warP3">Today, RUKAVYCHKA still needs support to keep the dogs safe, warm, fed and healthy.</p>
+    </div>
+    <div class="photo-placeholder">
+      [PHOTO: Shelter, kennels or winter preparations]
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="story-grid">
+    <div class="photo-placeholder yellow">
+      [PHOTO: Dogs playing, resting or enjoying attention]
+    </div>
+    <div>
+      <h2 data-i18n="hopeTitle">More than survival</h2>
+      <p data-i18n="hopeP1">RUKAVYCHKA is not only about difficult days. It is also about wagging tails, playful moments, familiar faces and dogs learning to trust again.</p>
+      <p data-i18n="hopeP2">Some have already found loving families. Others are still waiting. Every adoption, every bag of food and every helping hand makes a real difference.</p>
+      <p data-i18n="hopeP3">We want every dog to have the chance to experience a safe and loving home.</p>
+    </div>
+  </div>
+
+  <div class="foster">
+    <h2 data-i18n="fosterTitle">A separate safe place</h2>
+    <p data-i18n="fosterText">Alongside the main shelter, there is also a separate volunteer foster home that gives some dogs — including dogs rescued from military-affected areas — a temporary place of safety and care. It is a different home, but part of the same wider effort to help dogs in need.</p>
+  </div>
+</section>
+
+<section class="cta">
+  <h2 data-i18n="ctaTitle">Be part of their story</h2>
+  <p data-i18n="ctaText">You do not have to do something extraordinary. Adopting, donating, sharing our story or sending supplies can change a dog's life.</p>
+  <a href="our-dogs.html" class="button" data-i18n="ctaDogs">Meet our dogs</a>
+  <a href="help.html" class="button" data-i18n="ctaHelp">How to help</a>
+</section>
+
+<footer>
+  <p>RUKAVYCHKA ♥ <span data-i18n="footerText">Every dog deserves a loving home.</span></p>
+</footer>
+
+<script>
+const translations = {
+en: {
+navHome:"Home",navDogs:"Our Dogs",navStory:"Our Story",navHelp:"Help",
+navLife:"Shelter Life",navAdoptions:"Adoptions",navContacts:"Contacts",
+heroTitle:"A story of care, courage and hope",
+heroText:"Behind every rescued dog is a story. Behind RUKAVYCHKA are two people who chose to make a difference.",
+beginTitle:"It started with compassion",
+beginP1:"RUKAVYCHKA began on the property of Valentin and Vera, long before the full-scale war changed life in Ukraine. They opened their hearts and their home to dogs who had nowhere else to go.",
+beginP2:"What began as a personal act of kindness gradually became a shelter — a place where abandoned and vulnerable dogs could find food, safety and care.",
+quote:"“Every dog deserves to feel safe, loved and wanted.”",
+peopleTitle:"Valentin and Vera",
+peopleP1:"Valentin is over 70, but his days are still shaped by the needs of the dogs. He often starts around five in the morning and continues until late at night.",
+peopleP2:"He prepares food, feeds the dogs, cleans, checks on them and takes care of their everyday needs. Vera is now bedridden, but she remains an important part of the story and heart of RUKAVYCHKA.",
+peopleP3:"They do not do this for recognition. They do it because these animals depend on them.",
+dailyTitle:"A day at RUKAVYCHKA",
+dailyIntro:"A shelter is not just a place. It is a thousand small acts of care, repeated every single day.",
+daily1Title:"Preparing meals",daily1Text:"Large pots of porridge and food prepared for hungry dogs.",
+daily2Title:"Cleaning and care",daily2Text:"Keeping living spaces clean, checking on every dog and making sure they are comfortable.",
+daily3Title:"Health and treatment",daily3Text:"Vaccinations, parasite prevention, medicines and attention when a dog needs help.",
+daily4Title:"Love and attention",daily4Text:"A kind voice, a gentle touch, a game or simply someone sitting nearby.",
+warTitle:"When the war changed everything",
+warP1:"The war brought new dangers and enormous challenges. Shelling damaged parts of the shelter, and the dogs became vulnerable to frightening sounds, cold weather and uncertainty.",
+warP2:"Repairs, heating, food and everyday care became even harder to manage. Yet Valentin continued doing what he could for the animals who depended on him.",
+warP3:"Today, RUKAVYCHKA still needs support to keep the dogs safe, warm, fed and healthy.",
+hopeTitle:"More than survival",
+hopeP1:"RUKAVYCHKA is not only about difficult days. It is also about wagging tails, playful moments, familiar faces and dogs learning to trust again.",
+hopeP2:"Some have already found loving families. Others are still waiting. Every adoption, every bag of food and every helping hand makes a real difference.",
+hopeP3:"We want every dog to have the chance to experience a safe and loving home.",
+fosterTitle:"A separate safe place",
+fosterText:"Alongside the main shelter, there is also a separate volunteer foster home that gives some dogs — including dogs rescued from military-affected areas — a temporary place of safety and care. It is a different home, but part of the same wider effort to help dogs in need.",
+ctaTitle:"Be part of their story",
+ctaText:"You do not have to do something extraordinary. Adopting, donating, sharing our story or sending supplies can change a dog's life.",
+ctaDogs:"Meet our dogs",ctaHelp:"How to help",
+footerText:"Every dog deserves a loving home."
+},
+uk: {
+navHome:"Головна",navDogs:"Наші собаки",navStory:"Наша історія",navHelp:"Допомогти",
+navLife:"Життя притулку",navAdoptions:"Прилаштування",navContacts:"Контакти",
+heroTitle:"Історія турботи, мужності та надії",
+heroText:"За кожним врятованим собакою стоїть своя історія. За RUKAVYCHKA — двоє людей, які вирішили змінювати життя на краще.",
+beginTitle:"Усе почалося зі співчуття",
+beginP1:"RUKAVYCHKA з'явилася на подвір'ї Валентина та Віри задовго до того, як повномасштабна війна змінила життя в Україні. Вони відкрили свої серця й дім для собак, яким більше не було куди йти.",
+beginP2:"Те, що почалося як особистий вчинок доброти, поступово стало притулком — місцем, де покинуті та вразливі собаки могли знайти їжу, безпеку й турботу.",
+quote:"«Кожен собака заслуговує на безпеку, любов і відчуття, що він комусь потрібен».",
+peopleTitle:"Валентин і Віра",
+peopleP1:"Валентину понад 70 років, але його день і досі підпорядкований потребам собак. Часто він починає близько п'ятої ранку й працює до пізнього вечора.",
+peopleP2:"Він готує їжу, годує собак, прибирає, перевіряє їхній стан і дбає про щоденні потреби. Зараз Віра прикута до ліжка, але вона залишається важливою частиною історії та серця RUKAVYCHKA.",
+peopleP3:"Вони роблять це не заради визнання. Вони роблять це, тому що ці тварини залежать від них.",
+dailyTitle:"День у RUKAVYCHKA",
+dailyIntro:"Притулок — це не просто місце. Це тисячі маленьких проявів турботи, які повторюються щодня.",
+daily1Title:"Приготування їжі",daily1Text:"Великі каструлі каші та їжа для голодних собак.",
+daily2Title:"Чистота й догляд",daily2Text:"Прибирання, перевірка кожного собаки та турбота про комфорт.",
+daily3Title:"Здоров'я та лікування",daily3Text:"Вакцинація, захист від паразитів, ліки та увага, коли собаці потрібна допомога.",
+daily4Title:"Любов і увага",daily4Text:"Добре слово, ніжний дотик, гра або просто присутність поруч.",
+warTitle:"Коли війна змінила все",
+warP1:"Війна принесла нові небезпеки та величезні труднощі. Обстріли пошкодили частини притулку, а собаки стали вразливими до страшних звуків, холоду й невизначеності.",
+warP2:"Ремонтувати приміщення, забезпечувати тепло, їжу та щоденний догляд стало ще важче. Але Валентин продовжив робити все можливе для тварин, які від нього залежать.",
+warP3:"Сьогодні RUKAVYCHKA і далі потребує підтримки, щоб собаки були в безпеці, теплі, ситі та здорові.",
+hopeTitle:"Більше, ніж виживання",
+hopeP1:"RUKAVYCHKA — це не лише складні дні. Це також радісні хвостики, ігри, знайомі обличчя та собаки, які знову вчаться довіряти.",
+hopeP2:"Дехто вже знайшов люблячу родину. Інші ще чекають. Кожне прилаштування, кожен мішок корму та кожна простягнута рука справді змінюють життя.",
+hopeP3:"Ми хочемо, щоб кожен собака мав шанс на безпечний і люблячий дім.",
+fosterTitle:"Окреме безпечне місце",
+fosterText:"Поруч із основним притулком є також окремий волонтерський тимчасовий дім. Там деякі собаки, зокрема врятовані з прифронтових районів, можуть тимчасово отримати безпеку й турботу. Це інше місце, але частина спільної справи допомоги тваринам.",
+ctaTitle:"Станьте частиною їхньої історії",
+ctaText:"Не обов'язково робити щось надзвичайне. Прилаштування, пожертва, поширення нашої історії чи передача необхідних речей можуть змінити життя собаки.",
+ctaDogs:"Познайомитися із собаками",ctaHelp:"Як допомогти",
+footerText:"Кожен собака заслуговує на люблячий дім."
+},
+ru: {
+navHome:"Главная",navDogs:"Наши собаки",navStory:"Наша история",navHelp:"Помочь",
+navLife:"Жизнь приюта",navAdoptions:"Усыновления",navContacts:"Контакты",
+heroTitle:"История заботы, мужества и надежды",
+heroText:"За каждой спасённой собакой стоит своя история. За RUKAVYCHKA — два человека, которые решили менять жизни к лучшему.",
+beginTitle:"Всё началось с сострадания",
+beginP1:"RUKAVYCHKA появился на участке Валентина и Веры задолго до того, как полномасштабная война изменила жизнь в Украине. Они открыли свои сердца и дом для собак, которым больше некуда было идти.",
+beginP2:"То, что начиналось как личный поступок доброты, постепенно стало приютом — местом, где брошенные и беззащитные собаки могли найти еду, безопасность и заботу.",
+quote:"«Каждая собака заслуживает безопасности, любви и ощущения, что она кому-то нужна».",
+peopleTitle:"Валентин и Вера",
+peopleP1:"Валентину больше 70 лет, но его день по-прежнему подчинён потребностям собак. Часто он начинает около пяти утра и работает до позднего вечера.",
+peopleP2:"Он готовит еду, кормит собак, убирает, проверяет их состояние и заботится об их повседневных нуждах. Сейчас Вера прикована к постели, но она остаётся важной частью истории и сердца RUKAVYCHKA.",
+peopleP3:"Они делают это не ради признания. Они делают это потому, что эти животные от них зависят.",
+dailyTitle:"День в RUKAVYCHKA",
+dailyIntro:"Приют — это не просто место. Это тысячи маленьких проявлений заботы, которые повторяются каждый день.",
+daily1Title:"Приготовление еды",daily1Text:"Большие кастрюли каши и еда для голодных собак.",
+daily2Title:"Чистота и уход",daily2Text:"Уборка, проверка каждой собаки и забота о её комфорте.",
+daily3Title:"Здоровье и лечение",daily3Text:"Вакцинация, защита от паразитов, лекарства и внимание, когда собаке нужна помощь.",
+daily4Title:"Любовь и внимание",daily4Text:"Доброе слово, нежное прикосновение, игра или просто присутствие рядом.",
+warTitle:"Когда война изменила всё",
+warP1:"Война принесла новые опасности и огромные трудности. Обстрелы повредили части приюта, а собаки стали уязвимы перед пугающими звуками, холодом и неопределённостью.",
+warP2:"Ремонт, отопление, еда и ежедневный уход стали ещё сложнее. Но Валентин продолжил делать всё возможное для животных, которые от него зависят.",
+warP3:"Сегодня RUKAVYCHKA по-прежнему нуждается в поддержке, чтобы собаки были в безопасности, тепле, сыты и здоровы.",
+hopeTitle:"Больше, чем выживание",
+hopeP1:"RUKAVYCHKA — это не только трудные дни. Это ещё и радостные хвосты, игры, знакомые лица и собаки, которые снова учатся доверять.",
+hopeP2:"Некоторые уже нашли любящие семьи. Другие всё ещё ждут. Каждое пристройство, каждый мешок корма и каждая протянутая рука действительно меняют жизнь.",
+hopeP3:"Мы хотим, чтобы у каждой собаки был шанс обрести безопасный и любящий дом.",
+fosterTitle:"Отдельное безопасное место",
+fosterText:"Помимо основного приюта, есть отдельный волонтёрский временный дом. Там некоторые собаки, в том числе спасённые из районов боевых действий, могут временно получить безопасность и заботу. Это другое место, но часть общего дела помощи животным.",
+ctaTitle:"Станьте частью их истории",
+ctaText:"Не обязательно делать что-то необыкновенное. Пристройство, пожертвование, распространение нашей истории или отправка необходимых вещей могут изменить жизнь собаки.",
+ctaDogs:"Познакомиться с собаками",ctaHelp:"Как помочь",
+footerText:"Каждая собака заслуживает любящий дом."
+}
+};
+
+function setLanguage(lang) {
+  document.documentElement.lang = lang === "uk" ? "uk" : lang;
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (translations[lang][key]) el.textContent = translations[lang][key];
+  });
+  document.querySelectorAll(".languages button").forEach(btn => {
+    btn.classList.toggle("active", btn.textContent.toLowerCase() === lang);
+  });
+  localStorage.setItem("rukavichka-language", lang);
+}
+const savedLanguage = localStorage.getItem("rukavichka-language") || "en";
+setLanguage(savedLanguage);
+</script>
+
+</body>
+</html>
