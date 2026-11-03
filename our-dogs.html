@@ -1,1 +1,429 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Dogs | RUKAVYCHKA</title>
+<style>
+:root {
+  --cream: #FFF6DF;
+  --blue: #DCEEFF;
+  --yellow: #F5D987;
+  --white: #FFFFFF;
+  --ink: #343434;
+  --muted: #6F706E;
+  --accent: #527C9B;
+  --radius: 22px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+a { color: inherit; }
+header {
+  background: rgba(255,246,223,.96);
+  padding: 15px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+}
+.logo {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+nav { display: flex; gap: 19px; flex-wrap: wrap; }
+nav a {
+  text-decoration: none;
+  font-size: .93rem;
+  font-weight: 600;
+}
+nav a:hover, nav a.active { color: var(--accent); }
+.languages { display: flex; gap: 6px; }
+.languages button {
+  border: 1px solid #d5d0c3;
+  background: var(--white);
+  border-radius: 20px;
+  padding: 7px 11px;
+  cursor: pointer;
+  font-weight: 700;
+}
+.languages button.active {
+  background: var(--yellow);
+  border-color: var(--yellow);
+}
+.hero {
+  text-align: center;
+  padding: 65px 20px 45px;
+  background: var(--blue);
+}
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: .78rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1.1; margin: 12px 0; }
+.hero p { max-width: 680px; margin: 15px auto 0; color: #555; }
+main { max-width: 1180px; margin: auto; padding: 45px 22px 70px; }
+.intro {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 35px;
+}
+.intro h2 { font-size: 1.8rem; margin-bottom: 8px; }
+.intro p { color: var(--muted); }
+.dog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+.dog-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(50,50,50,.06);
+  display: flex;
+  flex-direction: column;
+}
+.photo-placeholder {
+  min-height: 215px;
+  background: linear-gradient(135deg, var(--blue), #f8e9bd);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #57738a;
+  gap: 5px;
+}
+.photo-placeholder .paw { font-size: 3.5rem; }
+.photo-placeholder small { font-size: .8rem; }
+.card-content { padding: 23px; display: flex; flex-direction: column; flex: 1; }
+.card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.card-top h2 { margin: 0; font-size: 1.55rem; }
+.age { color: var(--muted); font-size: .9rem; white-space: nowrap; }
+.status {
+  display: inline-block;
+  align-self: flex-start;
+  margin: 12px 0;
+  padding: 5px 11px;
+  border-radius: 20px;
+  background: #edf5e9;
+  color: #426b43;
+  font-size: .78rem;
+  font-weight: 700;
+}
+.status.support { background: #fff1d1; color: #87651f; }
+.tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 12px; }
+.tag {
+  background: var(--cream);
+  border-radius: 20px;
+  padding: 4px 9px;
+  font-size: .76rem;
+  color: #655e4e;
+}
+.card-content p { color: #555; margin: 8px 0 12px; }
+.card-content h3 { font-size: 1.03rem; margin: 8px 0 0; }
+.details {
+  display: none;
+  border-top: 1px solid #eee8dc;
+  padding-top: 10px;
+  margin-top: 4px;
+}
+.details.open { display: block; }
+.card-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; padding-top: 18px; }
+.btn {
+  display: inline-block;
+  border: 0;
+  border-radius: 25px;
+  padding: 11px 17px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: .9rem;
+  cursor: pointer;
+  text-align: center;
+}
+.btn-primary { background: var(--yellow); color: var(--ink); }
+.btn-secondary { background: var(--blue); color: var(--ink); }
+.btn:hover { filter: brightness(.97); transform: translateY(-1px); }
+.note {
+  background: var(--blue);
+  border-radius: var(--radius);
+  padding: 25px;
+  margin-top: 35px;
+  text-align: center;
+}
+.note p { max-width: 760px; margin: 8px auto; }
+footer {
+  background: #f1e8d3;
+  text-align: center;
+  padding: 25px 15px;
+  color: #68645b;
+  font-size: .88rem;
+}
+@media (max-width: 760px) {
+  header { justify-content: center; }
+  nav { order: 3; width: 100%; justify-content: center; gap: 12px 17px; }
+  .dog-grid { grid-template-columns: 1fr; }
+  .hero { padding: 48px 18px 35px; }
+  main { padding: 32px 15px 50px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="index.html">🐾 RUKAVYCHKA</a>
+  <nav>
+    <a href="index.html" data-i18n="home">Home</a>
+    <a href="our-dogs.html" class="active" data-i18n="dogs">Our dogs</a>
+    <a href="our-story.html" data-i18n="story">Our story</a>
+    <a href="help.html" data-i18n="help">Help us</a>
+    <a href="shelter-life.html" data-i18n="life">Shelter life</a>
+    <a href="adoptions.html" data-i18n="adoptions">Adoptions</a>
+    <a href="contacts.html" data-i18n="contacts">Contacts</a>
+  </nav>
+  <div class="languages">
+    <button type="button" data-lang="en" class="active">EN</button>
+    <button type="button" data-lang="ua">UA</button>
+    <button type="button" data-lang="ru">RU</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="eyebrow" data-i18n="eyebrow">Meet your new best friend</div>
+  <h1 data-i18n="title">Our dogs</h1>
+  <p data-i18n="subtitle">Every dog has a story. Maybe you are the next chapter in theirs.</p>
+</section>
+
+<main>
+  <section class="intro">
+    <h2 data-i18n="introTitle">Find your friend</h2>
+    <p data-i18n="introText">These wonderful dogs are waiting for someone to choose them. Read their stories, get to know their personalities and help us find the right match for each one.</p>
+  </section>
+
+  <section class="dog-grid" id="dogGrid"></section>
+
+  <section class="note">
+    <h2 data-i18n="noteTitle">A little more about our dogs</h2>
+    <p data-i18n="noteText">All our dogs are vaccinated and receive parasite prevention. Every dog has their own personality and needs. We will be happy to answer your questions and help you find the right companion.</p>
+    <a class="btn btn-primary" href="contacts.html" data-i18n="contactButton">Get in touch</a>
+  </section>
+</main>
+
+<footer>
+  © 2026 RUKAVYCHKA. <span data-i18n="footer">Made with love for every paw.</span> 🐾
+</footer>
+
+<script>
+const translations = {
+en: {
+  home:"Home", dogs:"Our dogs", story:"Our story", help:"Help us",
+  life:"Shelter life", adoptions:"Adoptions", contacts:"Contacts",
+  eyebrow:"Meet your new best friend", title:"Our dogs",
+  subtitle:"Every dog has a story. Maybe you are the next chapter in theirs.",
+  introTitle:"Find your friend",
+  introText:"These wonderful dogs are waiting for someone to choose them. Read their stories, get to know their personalities and help us find the right match for each one.",
+  noteTitle:"A little more about our dogs",
+  noteText:"All our dogs are vaccinated and receive parasite prevention. Every dog has their own personality and needs. We will be happy to answer your questions and help you find the right companion.",
+  contactButton:"Get in touch", footer:"Made with love for every paw.",
+  photo:"Photo coming soon", readMore:"Read their story", readLess:"Show less",
+  adopt:"Ask about adoption", sponsor:"Support Luna's training",
+  looking:"Looking for a home", careful:"Looking for a carefully matched home",
+  support:"Needs patient support", peaceful:"Needs a safe and peaceful environment",
+  foster:"Staying with a volunteer",
+  vaccinated:"Vaccinated", neutered:"Neutered", spayed:"Spayed",
+  notNeutered:"Not neutered", weight15:"Around 15 kg", weight12:"Around 12 kg",
+  maxTitle:"A little bundle of energy!",
+  maxShort:"Max is a lively, affectionate boy who loves attention, toys, sticks and playing with everyone.",
+  maxStory:"Max was rescued during a freezing winter after being found alone following a nearby shelling. He may have been abandoned or lost, but nobody ever came back for him. Max gets along with other dogs and even lives with cats, although he enthusiastically tries to turn everyone into his playmate! He has the personality and build of a terrier. Max is a true home dog who would love an active family ready to give him exercise, playtime and affection.",
+  lisaTitle:"Sunshine on four paws",
+  lisaShort:"Lisa is a cheerful, gentle and affectionate girl. She loves walks as much as curling up under a warm blanket.",
+  lisaStory:"Lisa was abandoned when she became pregnant during her first heat. We found her with her puppies. She was painfully thin and covered in fleas. We helped her recover, and all her puppies survived and found loving families. Lisa is still waiting for hers. She loves cats and seems to have enough affection to hug and kiss everyone she meets.",
+  bruceTitle:"Our handsome boss",
+  bruceShort:"Bruce is exceptionally intelligent, dignified and athletic. He loves walks, activity and children.",
+  bruceStory:"Bruce was rescued as a puppy together with his mother and sister. Both have since found families of their own. Sadly, his first adoption did not work out. He was chained up in a village, and we had to travel 500 km to bring him back to safety. We are now very careful about choosing his next family. Bruce deserves a home where he will be treated as a beloved family member, never left on a chain. He absolutely adores children.",
+  lunaTitle:"Luna deserves to feel safe again",
+  lunaShort:"Luna is affectionate and sociable, but she is deeply afraid of collars and leashes after surviving a rocket strike.",
+  lunaStory:"Luna came from a difficult home. She was spayed at a clinic where she received poor care. Later, a rocket struck the building where she was tied up. She could not escape and had to be pulled from the rubble. We spent six months helping her recover. Today, Luna is physically recovered, affectionate and sociable. However, her traumatic experience left her with a severe fear of collars and leashes. She does not attack people. Instead, she becomes frightened, trembles and hides. If a family is genuinely interested in adopting Luna, we would like to find a qualified dog trainer to help prepare her gently for walks and travel. You can also sponsor her professional training.",
+  terryTitle:"A clever boy with a big personality",
+  terryShort:"Terry is active, intelligent and affectionate. He loves children, women, outdoor adventures and cuddles.",
+  terryStory:"Terry has strong hunting instincts and loves attention and outdoor adventures. His past was not easy. He was mistreated by some people, including men, so he can be selective about men he trusts. With some, he may growl or show his teeth. He needs a responsible owner who understands dog behaviour, provides consistent boundaries and builds trust patiently. Terry has spent the past year in the care of a wonderful volunteer. During this time, he has shown how obedient, affectionate and eager to learn he can be. Terry is staying in a separate foster home, not at the main shelter.",
+  caseyTitle:"A gentle and graceful girl",
+  caseyShort:"Casey is a modest, cautious and graceful girl who has never shown aggression towards people or animals.",
+  caseyStory:"Casey was rescued as a puppy and grew up alongside Bruce. She is a modest, cautious girl with a graceful presence and a very gentle nature. She has never shown aggression towards people, dogs or cats. Casey may need a little time to feel comfortable in a new environment, but she has so much potential to become a wonderful companion for someone who appreciates a quieter, more sensitive dog.",
+  ryzhikTitle:"A beautiful soul who needs peace",
+  ryzhikShort:"Ryzhik is handsome, intelligent and wonderful, but he is terribly frightened by gunshots and explosions.",
+  ryzhikStory:"Ryzhik is an incredibly handsome, intelligent and wonderful dog. Sadly, he is terrified of gunshots and explosions. With the ongoing war, these sounds make life especially difficult for him. More than anything, Ryzhik needs safety, patience and a calm environment where he can finally relax without being frightened by every loud noise. We hope someone will see beyond his age and give this lovely boy the peaceful life he deserves."
+},
+ru: {
+  home:"Главная", dogs:"Наши собаки", story:"Наша история", help:"Помочь нам",
+  life:"Жизнь приюта", adoptions:"Успешные пристройства", contacts:"Контакты",
+  eyebrow:"Познакомьтесь со своим будущим другом", title:"Наши собаки",
+  subtitle:"У каждой собаки своя история. Возможно, именно вы станете её новой главой.",
+  introTitle:"Найдите своего друга",
+  introText:"Эти замечательные собаки ждут человека, который выберет именно их. Познакомьтесь с их историями и характерами — мы поможем найти подходящую семью.",
+  noteTitle:"Немного о наших собаках",
+  noteText:"Все наши собаки вакцинированы и получают регулярную обработку от паразитов. У каждой свой характер и свои потребности. Мы с радостью ответим на вопросы и поможем подобрать друга.",
+  contactButton:"Связаться с нами", footer:"С любовью к каждой лапке.",
+  photo:"Фотография скоро появится", readMore:"Читать историю", readLess:"Свернуть",
+  adopt:"Узнать об усыновлении", sponsor:"Помочь с занятиями Луны",
+  looking:"Ищет дом", careful:"Ищем очень подходящую семью",
+  support:"Нужны терпение и поддержка", peaceful:"Нужны безопасность и спокойствие",
+  foster:"Живёт на передержке у волонтёра",
+  vaccinated:"Вакцинирован(а)", neutered:"Кастрирован", spayed:"Стерилизована",
+  notNeutered:"Не кастрирован", weight15:"Около 15 кг", weight12:"Около 12 кг",
+  maxTitle:"Настоящий сгусток энергии!",
+  maxShort:"Макс — активный и ласковый мальчик. Обожает внимание, игрушки, палочки и игры со всеми вокруг.",
+  maxStory:"Макса спасли морозной зимой после того, как он остался один после прилёта неподалёку. Возможно, он потерялся или его бросили, но за ним так никто и не вернулся. Макс ладит с другими собаками и даже живёт с котами, хотя очень активно пытается вовлечь всех в игру! По характеру и телосложению он напоминает терьера. Максу подойдёт активная семья, готовая уделять ему время, гулять и играть.",
+  lisaTitle:"Солнышко на четырёх лапах",
+  lisaShort:"Лиза — жизнерадостная, добрая и ласковая девочка. Она одинаково рада прогулке и уюту под пледом.",
+  lisaStory:"Лизу выбросили на улицу, когда она забеременела во время первой течки. Мы нашли её вместе со щенками: она была очень истощена и вся в блохах. Мы помогли ей восстановиться. Все щенки выжили и нашли любящие семьи. Лиза всё ещё ждёт свою. Она любит котов и готова обнять и зацеловать каждого.",
+  bruceTitle:"Наш красавчик и настоящий босс",
+  bruceShort:"Брюс невероятно умный, статный и спортивный. Любит прогулки, активность и детей.",
+  bruceStory:"Брюса спасли щенком вместе с мамой и сестрой. Они уже нашли свои семьи. К сожалению, первое усыновление Брюса оказалось неудачным: в селе его посадили на цепь, и нам пришлось проехать 500 км, чтобы снова забрать его в безопасность. Теперь мы особенно внимательно выбираем ему семью. Брюс заслуживает дома, где он будет любимым членом семьи и никогда не окажется на цепи. Он обожает детей.",
+  lunaTitle:"Луна заслуживает снова почувствовать себя в безопасности",
+  lunaShort:"Луна ласковая и общительная, но после ракетного удара очень боится ошейника и поводка.",
+  lunaStory:"У Луны была непростая жизнь. Её стерилизовали в клинике, где с ней плохо обращались. Позже ракета попала в здание, где Луна была привязана и не могла убежать. Её доставали из-под завалов. Мы помогали ей восстанавливаться полгода. Сейчас физически она восстановилась, ласкова и общительна. Но пережитая травма оставила сильный страх ошейника и поводка. Она не нападает на людей — она пугается, дрожит и прячется. Если найдётся семья, заинтересованная в Луне, мы хотим найти хорошего кинолога, который мягко поможет ей подготовиться к прогулкам и поездкам. Также можно спонсировать её занятия.",
+  terryTitle:"Умный мальчик с ярким характером",
+  terryShort:"Терри активный, умный и ласковый. Любит детей, женщин, прогулки и долгие объятия.",
+  terryStory:"У Терри сильные охотничьи инстинкты, он любит внимание и активные прогулки. В прошлом его обижали люди, в том числе мужчины, поэтому к мужчинам он относится избирательно. Некоторым может рычать и показывать зубы. Ему нужен ответственный хозяин, который понимает поведение собак, умеет устанавливать спокойные границы и терпеливо выстраивать доверие. Последний год Терри живёт на передержке у замечательного волонтёра. За это время он показал себя послушным, ласковым и очень способным к обучению. Терри находится отдельно от основного приюта.",
+  caseyTitle:"Скромная и грациозная девочка",
+  caseyShort:"Кейси — осторожная, скромная и грациозная собака. Никогда не проявляла агрессии к людям и животным.",
+  caseyStory:"Кейси спасли щенком, и она росла вместе с Брюсом. Это скромная, осторожная девочка с очень мягким характером. Она никогда не проявляла агрессии ни к людям, ни к собакам, ни к кошкам. Возможно, в новой обстановке ей понадобится немного времени, чтобы освоиться. Кейси может стать прекрасным другом для человека, который ценит спокойных и деликатных собак.",
+  ryzhikTitle:"Прекрасная душа, которой нужен покой",
+  ryzhikShort:"Рыжик очень красивый, умный и замечательный пёс, но до ужаса боится выстрелов и взрывов.",
+  ryzhikStory:"Рыжик — невероятно красивый, умный и замечательный пёс. К сожалению, он панически боится выстрелов и взрывов. Во время войны такие звуки делают его жизнь особенно тяжёлой. Больше всего ему нужны безопасность, терпение и спокойная обстановка, где он сможет наконец расслабиться и не вздрагивать от каждого громкого звука. Мы надеемся, что кто-то увидит в нём не возраст, а прекрасного друга, которому очень нужен покой."
+},
+ua: {
+  home:"Головна", dogs:"Наші собаки", story:"Наша історія", help:"Допомогти нам",
+  life:"Життя притулку", adoptions:"Щасливі історії", contacts:"Контакти",
+  eyebrow:"Познайомтеся зі своїм майбутнім другом", title:"Наші собаки",
+  subtitle:"У кожного собаки своя історія. Можливо, саме ви станете її новою главою.",
+  introTitle:"Знайдіть свого друга",
+  introText:"Ці чудові собаки чекають на людину, яка обере саме їх. Познайомтеся з їхніми історіями та характерами — ми допоможемо знайти відповідну родину.",
+  noteTitle:"Трохи про наших собак",
+  noteText:"Усі наші собаки вакциновані та регулярно обробляються від паразитів. Кожен має свій характер і потреби. Ми з радістю відповімо на ваші запитання та допоможемо знайти друга.",
+  contactButton:"Зв’язатися з нами", footer:"З любов’ю до кожної лапки.",
+  photo:"Фото незабаром з’явиться", readMore:"Читати історію", readLess:"Згорнути",
+  adopt:"Дізнатися про адопцію", sponsor:"Допомогти з заняттями Луни",
+  looking:"Шукає дім", careful:"Шукаємо дуже відповідну родину",
+  support:"Потрібні терпіння та підтримка", peaceful:"Потрібні безпека та спокій",
+  foster:"Живе на перетримці у волонтера",
+  vaccinated:"Вакцинований(а)", neutered:"Кастрований", spayed:"Стерилізована",
+  notNeutered:"Не кастрований", weight15:"Близько 15 кг", weight12:"Близько 12 кг",
+  maxTitle:"Справжній клубочок енергії!",
+  maxShort:"Макс — активний і лагідний хлопчик. Обожнює увагу, іграшки, палички та ігри з усіма навколо.",
+  maxStory:"Макса врятували морозної зими після того, як він залишився сам після прильоту неподалік. Можливо, він загубився або його покинули, але за ним так ніхто й не повернувся. Макс ладнає з іншими собаками й навіть живе з котами, хоча дуже активно намагається залучити всіх до гри! За характером і статурою він нагадує тер’єра. Максові підійде активна родина, готова приділяти йому час, гуляти та гратися.",
+  lisaTitle:"Сонечко на чотирьох лапках",
+  lisaShort:"Ліза — життєрадісна, добра й лагідна дівчинка. Вона однаково радіє прогулянці та затишку під пледом.",
+  lisaStory:"Лізу викинули на вулицю, коли вона завагітніла під час першої тічки. Ми знайшли її разом із цуценятами: вона була дуже виснажена й уся в блохах. Ми допомогли їй одужати. Усі цуценята вижили та знайшли люблячі родини. Ліза досі чекає на свою. Вона любить котів і готова обійняти та зацілувати кожного.",
+  bruceTitle:"Наш красень і справжній бос",
+  bruceShort:"Брюс неймовірно розумний, статний і спортивний. Любить прогулянки, активність і дітей.",
+  bruceStory:"Брюса врятували цуценям разом із мамою та сестрою. Вони вже знайшли свої родини. На жаль, перша адопція Брюса виявилася невдалою: у селі його посадили на ланцюг, і нам довелося проїхати 500 км, щоб знову забрати його в безпеку. Тепер ми особливо уважно обираємо йому родину. Брюс заслуговує на дім, де він буде улюбленим членом сім’ї та ніколи не опиниться на ланцюгу. Він обожнює дітей.",
+  lunaTitle:"Луна заслуговує знову відчути себе в безпеці",
+  lunaShort:"Луна лагідна й товариська, але після ракетного удару дуже боїться нашийника та повідця.",
+  lunaStory:"У Луни було непросте життя. Її стерилізували в клініці, де з нею погано поводилися. Пізніше ракета влучила в будівлю, де Луна була прив’язана й не могла втекти. Її діставали з-під завалів. Ми допомагали їй відновлюватися пів року. Зараз фізично вона одужала, вона лагідна й товариська. Але пережита травма залишила сильний страх нашийника та повідця. Вона не нападає на людей — вона лякається, тремтить і ховається. Якщо знайдеться родина, зацікавлена в Луні, ми хочемо знайти хорошого кінолога, який м’яко допоможе їй підготуватися до прогулянок і поїздок. Також можна підтримати її заняття фінансово.",
+  terryTitle:"Розумний хлопчик із яскравим характером",
+  terryShort:"Террі активний, розумний і лагідний. Любить дітей, жінок, прогулянки та довгі обійми.",
+  terryStory:"У Террі сильні мисливські інстинкти, він любить увагу й активні прогулянки. У минулому його кривдили люди, зокрема чоловіки, тому до чоловіків він ставиться вибірково. Деяким може гарчати й показувати зуби. Йому потрібен відповідальний господар, який розуміє поведінку собак, уміє встановлювати спокійні межі й терпляче вибудовувати довіру. Останній рік Террі живе на перетримці у чудового волонтера. За цей час він показав себе слухняним, лагідним і дуже здібним до навчання. Террі перебуває окремо від основного притулку.",
+  caseyTitle:"Скромна та граційна дівчинка",
+  caseyShort:"Кейсі — обережна, скромна й граційна собака. Ніколи не виявляла агресії до людей чи тварин.",
+  caseyStory:"Кейсі врятували цуценям, і вона росла разом із Брюсом. Це скромна, обережна дівчинка з дуже м’яким характером. Вона ніколи не виявляла агресії ні до людей, ні до собак, ні до котів. Можливо, у новій оселі їй знадобиться трохи часу, щоб освоїтися. Кейсі може стати чудовою подругою для людини, яка цінує спокійних і делікатних собак.",
+  ryzhikTitle:"Прекрасна душа, якій потрібен спокій",
+  ryzhikShort:"Рижик дуже красивий, розумний і чудовий пес, але страшенно боїться пострілів і вибухів.",
+  ryzhikStory:"Рижик — неймовірно красивий, розумний і чудовий пес. На жаль, він панічно боїться пострілів і вибухів. Під час війни такі звуки роблять його життя особливо важким. Найбільше йому потрібні безпека, терпіння та спокійне середовище, де він зможе нарешті розслабитися й не здригатися від кожного гучного звуку. Ми сподіваємося, що хтось побачить у ньому не вік, а прекрасного друга, якому дуже потрібен спокій."
+}
+};
+
+const dogs = [
+ {id:"max", name:"Max", age:"3 years", status:"looking", tags:["neutered","weight15"], short:"maxShort", title:"maxTitle", story:"maxStory"},
+ {id:"lisa", name:"Lisa", age:"2.5 years", status:"looking", tags:["spayed","weight12"], short:"lisaShort", title:"lisaTitle", story:"lisaStory"},
+ {id:"bruce", name:"Bruce", age:"4.5 years", status:"careful", tags:["notNeutered"], short:"bruceShort", title:"bruceTitle", story:"bruceStory"},
+ {id:"luna", name:"Luna", age:"2.5 years", status:"support", tags:["spayed"], short:"lunaShort", title:"lunaTitle", story:"lunaStory", sponsor:true},
+ {id:"terry", name:"Terry", age:"3 years", status:"careful", tags:["neutered","foster"], short:"terryShort", title:"terryTitle", story:"terryStory"},
+ {id:"casey", name:"Casey", age:"4.5 years", status:"looking", tags:["spayed"], short:"caseyShort", title:"caseyTitle", story:"caseyStory"},
+ {id:"ryzhik", name:"Ryzhik", age:"10 years", status:"peaceful", tags:[], short:"ryzhikShort", title:"ryzhikTitle", story:"ryzhikStory"}
+];
+
+let currentLang = localStorage.getItem("rukavichka-language") || "en";
+
+function renderDogs() {
+  const t = translations[currentLang];
+  const grid = document.getElementById("dogGrid");
+  grid.innerHTML = dogs.map(dog => {
+    const statusClass = dog.status === "support" || dog.status === "peaceful" ? "status support" : "status";
+    const tags = [...dog.tags, "vaccinated"].map(tag => `<span class="tag">${t[tag]}</span>`).join("");
+    const action = dog.sponsor
+      ? `<a class="btn btn-primary" href="help.html#sponsorship">${t.sponsor}</a>`
+      : `<a class="btn btn-primary" href="contacts.html">${t.adopt}</a>`;
+    return `
+      <article class="dog-card">
+        <div class="photo-placeholder" aria-label="${t.photo}">
+          <div class="paw">🐾</div>
+          <small>${t.photo}</small>
+        </div>
+        <div class="card-content">
+          <div class="card-top">
+            <h2>${dog.name}</h2>
+            <span class="age">${dog.age}</span>
+          </div>
+          <span class="${statusClass}">${t[dog.status]}</span>
+          <div class="tags">${tags}</div>
+          <h3>${t[dog.title]}</h3>
+          <p>${t[dog.short]}</p>
+          <div class="details" id="details-${dog.id}">
+            <p>${t[dog.story]}</p>
+          </div>
+          <div class="card-actions">
+            <button class="btn btn-secondary" type="button" onclick="toggleDetails('${dog.id}', this)">${t.readMore}</button>
+            ${action}
+          </div>
+        </div>
+      </article>`;
+  }).join("");
+}
+
+function toggleDetails(id, button) {
+  const details = document.getElementById("details-" + id);
+  details.classList.toggle("open");
+  button.textContent = details.classList.contains("open")
+    ? translations[currentLang].readLess
+    : translations[currentLang].readMore;
+}
+
+function setLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem("rukavichka-language", lang);
+  document.documentElement.lang = lang === "ua" ? "uk" : lang;
+  document.querySelectorAll("[data-i18n]").forEach(element => {
+    const key = element.getAttribute("data-i18n");
+    if (translations[lang][key]) element.textContent = translations[lang][key];
+  });
+  document.querySelectorAll("[data-lang]").forEach(button => {
+    button.classList.toggle("active", button.dataset.lang === lang);
+  });
+  renderDogs();
+}
+
+document.querySelectorAll("[data-lang]").forEach(button => {
+  button.addEventListener("click", () => setLanguage(button.dataset.lang));
+});
+
+setLanguage(currentLang);
+</script>
+</body>
+</html>
+
