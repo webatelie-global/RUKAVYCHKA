@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Endings | RUKAVYCHKA</title>
+
+<style>
+:root{
+  --cream:#FFF6DF;
+  --blue:#DCEEFF;
+  --yellow:#F5D987;
+  --white:#FFFFFF;
+  --ink:#343434;
+  --muted:#696969;
+  --orange:#D98B45;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  color:var(--ink);
+  background:var(--cream);
+  line-height:1.65;
+}
+
+/* HEADER */
+header{
+  background:white;
+  padding:17px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+  box-shadow:0 3px 14px rgba(0,0,0,.05);
+}
+.logo{
+  font-size:25px;
+  font-weight:800;
+  letter-spacing:1px;
+  color:var(--ink);
+  text-decoration:none;
+}
+.logo span{color:var(--orange)}
+nav{
+  display:flex;
+  gap:17px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+nav a{
+  text-decoration:none;
+  color:var(--ink);
+  font-size:14px;
+  font-weight:600;
+}
+nav a:hover,nav a.active{color:var(--orange)}
+.languages{display:flex;gap:6px}
+.languages button{
+  border:1px solid #ddd;
+  background:white;
+  border-radius:20px;
+  padding:7px 11px;
+  cursor:pointer;
+  font-weight:bold;
+}
+.languages button.active{
+  background:var(--yellow);
+  border-color:var(--yellow);
+}
+
+/* HERO */
+.hero{
+  background:var(--blue);
+  text-align:center;
+  padding:85px 20px 75px;
+}
+.hero .heart{
+  font-size:35px;
+  margin-bottom:10px;
+}
+.hero h1{
+  font-size:clamp(38px,6vw,60px);
+  line-height:1.12;
+  margin:0 0 20px;
+}
+.hero p{
+  max-width:740px;
+  margin:auto;
+  font-size:19px;
+  color:#555;
+}
+
+/* INTRO */
+.intro{
+  max-width:800px;
+  margin:auto;
+  padding:65px 25px 35px;
+  text-align:center;
+}
+.intro h2{
+  font-size:clamp(27px,4vw,38px);
+  margin:0 0 15px;
+}
+.intro p{
+  font-size:17px;
+  color:#666;
+  margin:0;
+}
+
+/* STORIES */
+.stories{
+  max-width:1150px;
+  margin:auto;
+  padding:20px 25px 75px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:30px;
+}
+.story-card{
+  background:white;
+  border-radius:25px;
+  overflow:hidden;
+  box-shadow:0 7px 24px rgba(0,0,0,.05);
+  transition:transform .25s,box-shadow .25s;
+}
+.story-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 12px 30px rgba(0,0,0,.09);
+}
+.photo-placeholder{
+  min-height:290px;
+  background:#F8E9B8;
+  border-bottom:2px dashed #ddc77f;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:25px;
+  color:#79683c;
+}
+.photo-placeholder .paw{
+  font-size:43px;
+  margin-bottom:10px;
+}
+.photo-placeholder span{
+  font-size:14px;
+  font-weight:bold;
+}
+.story-content{
+  padding:28px 30px 32px;
+}
+.story-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:12px;
+}
+.story-content h2{
+  font-size:29px;
+  margin:0;
+}
+.city{
+  display:inline-block;
+  background:var(--blue);
+  border-radius:20px;
+  padding:6px 13px;
+  font-size:13px;
+  font-weight:bold;
+}
+.story-age{
+  color:#9a7942;
+  font-size:14px;
+  font-weight:bold;
+  margin-bottom:13px;
+}
+.story-content p{
+  color:#626262;
+  margin:0 0 14px;
+}
+.story-content .happy{
+  color:#9b7740;
+  font-weight:bold;
+  margin:17px 0 0;
+}
+
+/* FINAL MESSAGE */
+.final-message{
+  background:var(--yellow);
+  text-align:center;
+  padding:65px 20px;
+}
+.final-message h2{
+  font-size:clamp(28px,4vw,38px);
+  margin:0 0 15px;
+}
+.final-message p{
+  max-width:700px;
+  margin:0 auto 20px;
+  color:#514a39;
+  font-size:17px;
+}
+.button{
+  display:inline-block;
+  padding:14px 25px;
+  background:var(--ink);
+  color:white;
+  text-decoration:none;
+  border-radius:30px;
+  font-weight:bold;
+  margin:6px;
+  transition:.2s;
+}
+.button:hover{
+  background:#555;
+  transform:translateY(-3px);
+}
+.button.light{
+  background:white;
+  color:var(--ink);
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:35px 15px 28px;
+  background:var(--cream);
+  color:var(--muted);
+  font-size:13px;
+}
+.footer-brand{
+  font-size:20px;
+  font-weight:800;
+  letter-spacing:2px;
+  color:var(--ink);
+  margin-bottom:7px;
+}
+.footer-paws{
+  color:#B38A42;
+  font-size:21px;
+  letter-spacing:5px;
+  margin:10px 0;
+}
+.footer-line{
+  width:48px;
+  height:3px;
+  border-radius:5px;
+  background:var(--yellow);
+  margin:12px auto;
+}
+
+/* RESPONSIVE */
+@media(max-width:850px){
+  .stories{gap:20px}
+}
+@media(max-width:750px){
+  header{
+    justify-content:center;
+    text-align:center;
+  }
+  nav{
+    justify-content:center;
+    gap:12px;
+  }
+  nav a{font-size:13px}
+  .stories{
+    grid-template-columns:1fr;
+    padding:15px 18px 50px;
+  }
+  .intro{padding:50px 20px 30px}
+  .story-content{padding:24px}
+  .photo-placeholder{min-height:230px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="logo" href="index.html">RUKAVYCHKA<span>♥</span></a>
+
+  <nav>
+    <a href="index.html" data-i18n="navHome">Home</a>
+    <a href="our-dogs.html" data-i18n="navDogs">Our Dogs</a>
+    <a href="our-story.html" data-i18n="navStory">Our Story</a>
+    <a href="help.html" data-i18n="navHelp">Help</a>
+    <a href="shelter-life.html" data-i18n="navLife">Shelter Life</a>
+    <a href="adoptions.html" class="active" data-i18n="navAdoptions">Adoptions</a>
+    <a href="contacts.html" data-i18n="navContacts">Contacts</a>
+  </nav>
+
+  <div class="languages">
+    <button onclick="setLanguage('en')">EN</button>
+    <button onclick="setLanguage('uk')">UA</button>
+    <button onclick="setLanguage('ru')">RU</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="heart">💛 🐾 💛</div>
+  <h1 data-i18n="heroTitle">Happy Endings</h1>
+  <p data-i18n="heroText">
+    Every rescue story deserves a happy ending. These are the dogs who found their families, their safe places and the love they had been waiting for.
+  </p>
+</section>
+
+<section class="intro">
+  <h2 data-i18n="introTitle">From rescue to forever home</h2>
+  <p data-i18n="introText">
+    Behind every happy ending is a journey. Some of these dogs came from difficult situations, but today they have warm beds, loving families and a future full of happiness.
+  </p>
+</section>
+
+<section class="stories">
+
+  <!-- FEDYA -->
+  <article class="story-card">
+    <div class="photo-placeholder">
+      <div class="paw">🐾</div>
+      <span data-i18n="photoFedya">PHOTO OF FEDYA HERE</span>
+    </div>
+    <div class="story-content">
+      <div class="story-top">
+        <h2>Fedya</h2>
+        <span class="city">🇭🇺 Budapest</span>
+      </div>
+      <div class="story-age" data-i18n="fedyaAge">About 5 years old</div>
+      <p data-i18n="fedyaText1">
+        Fedya was rescued from a terrible boarding facility, where he had spent six months in a tiny cage. He still had stitches from his neutering surgery and a large pressure sore on his chest because he had barely been able to move.
+      </p>
+      <p data-i18n="fedyaText2">
+        Today, Fedya lives in Budapest with his family, where he is the most loved boy in the world. He has his own sofa, sleeps in his mum's bed under a warm blanket and enjoys trips to the forest.
+      </p>
+      <p class="happy" data-i18n="fedyaHappy">His very own home, and all the love he deserves. 🩵</p>
+    </div>
+  </article>
+
+  <!-- LENYA -->
+  <article class="story-card">
+    <div class="photo-placeholder">
+      <div class="paw">🐾</div>
+      <span data-i18n="photoLenya">PHOTO OF LENYA HERE</span>
+    </div>
+    <div class="story-content">
+      <div class="story-top">
+        <h2>Lenya</h2>
+        <span class="city">🇦🇹 Vienna</span>
+      </div>
+      <div class="story-age" data-i18n="lenyaAge">About 5–6 years old</div>
+      <p data-i18n="lenyaText1">
+        Our sweet Lenya travelled to Vienna to join his sister Nelly. They are now the best of friends and finally get to enjoy life together.
+      </p>
+      <p data-i18n="lenyaText2">
+        Lenya now goes to grooming appointments, enjoys good-quality food that does not trigger his allergies, explores the streets of Vienna and spends cosy evenings on the sofa with his mum and dad.
+      </p>
+      <p class="happy" data-i18n="lenyaHappy">Together again, safe and loved. ❤️</p>
+    </div>
+  </article>
+
+  <!-- BONYA -->
+  <article class="story-card">
+    <div class="photo-placeholder">
+      <div class="paw">🐾</div>
+      <span data-i18n="photoBonya">PHOTO OF BONYA HERE</span>
+    </div>
+    <div class="story-content">
+      <div class="story-top">
+        <h2>Bonya</h2>
+        <span class="city">🇦🇹 Vienna</span>
+      </div>
+      <div class="story-age" data-i18n="bonyaAge">About 7 years old</div>
+      <p data-i18n="bonyaText1">
+        Bonya was rescued by soldiers in Kramatorsk. She had been through so much: her tail had been shot off, she had serious dental problems that made eating difficult, and she also needed surgery to remove a benign lipoma. We raised funds to help pay for her treatment.
+      </p>
+      <p data-i18n="bonyaText2">
+        After everything she endured, Bonya finally found her way to Vienna and into a loving, responsible family. Now she enjoys walks in her warm little jacket, sleeps on the sofa wrapped in a blanket and receives all the health check-ups she needs.
+      </p>
+      <p class="happy" data-i18n="bonyaHappy">A new life filled with care, comfort and love. ❤️</p>
+    </div>
+  </article>
+
+  <!-- ARCHIE -->
+  <article class="story-card">
+    <div class="photo-placeholder">
+      <div class="paw">🐾</div>
+      <span data-i18n="photoArchie">PHOTO OF ARCHIE HERE</span>
+    </div>
+    <div class="story-content">
+      <div class="story-top">
+        <h2>Archie</h2>
+        <span class="city">🇩🇰 Copenhagen</span>
+      </div>
+      <div class="story-age" data-i18n="archieAge">Our happy boy</div>
+      <p data-i18n="archieText">
+        Our Archie is home in Copenhagen! He has started a new chapter of his life, surrounded by the love and care every dog deserves.
+      </p>
+      <p class="happy" data-i18n="archieHappy">A new home, a new beginning. ❤️</p>
+    </div>
+  </article>
+
+</section>
+
+<section class="final-message">
+  <h2 data-i18n="finalTitle">Every dog deserves a happy ending</h2>
+  <p data-i18n="finalText">
+    There are still dogs at RUKAVYCHKA waiting for their own families. Maybe their happy ending will begin with you.
+  </p>
+  <a href="our-dogs.html" class="button" data-i18n="finalDogs">Meet our dogs</a>
+  <a href="contacts.html" class="button light" data-i18n="finalContact">Contact us</a>
+</section>
+
+<footer>
+  <div class="footer-brand">🐾 RUKAVYCHKA</div>
+  <div data-i18n="footerText">Every dog deserves a loving home.</div>
+  <div class="footer-paws">🐾 🐾 🐾</div>
+  <div class="footer-line"></div>
+  <p>© 2026 RUKAVYCHKA. Made with love for every paw.</p>
+</footer>
+
+<script>
+const translations = {
+
+en:{
+navHome:"Home",
+navDogs:"Our Dogs",
+navStory:"Our Story",
+navHelp:"Help",
+navLife:"Shelter Life",
+navAdoptions:"Adoptions",
+navContacts:"Contacts",
+
+heroTitle:"Happy Endings",
+heroText:"Every rescue story deserves a happy ending. These are the dogs who found their families, their safe places and the love they had been waiting for.",
+
+introTitle:"From rescue to forever home",
+introText:"Behind every happy ending is a journey. Some of these dogs came from difficult situations, but today they have warm beds, loving families and a future full of happiness.",
+
+photoFedya:"PHOTO OF FEDYA HERE",
+fedyaAge:"About 5 years old",
+fedyaText1:"Fedya was rescued from a terrible boarding facility, where he had spent six months in a tiny cage. He still had stitches from his neutering surgery and a large pressure sore on his chest because he had barely been able to move.",
+fedyaText2:"Today, Fedya lives in Budapest with his family, where he is the most loved boy in the world. He has his own sofa, sleeps in his mum's bed under a warm blanket and enjoys trips to the forest.",
+fedyaHappy:"His very own home, and all the love he deserves. 🩵",
+
+photoLenya:"PHOTO OF LENYA HERE",
+lenyaAge:"About 5–6 years old",
+lenyaText1:"Our sweet Lenya travelled to Vienna to join his sister Nelly. They are now the best of friends and finally get to enjoy life together.",
+lenyaText2:"Lenya now goes to grooming appointments, enjoys good-quality food that does not trigger his allergies, explores the streets of Vienna and spends cosy evenings on the sofa with his mum and dad.",
+lenyaHappy:"Together again, safe and loved. ❤️",
+
+photoBonya:"PHOTO OF BONYA HERE",
+bonyaAge:"About 7 years old",
+bonyaText1:"Bonya was rescued by soldiers in Kramatorsk. She had been through so much: her tail had been shot off, she had serious dental problems that made eating difficult, and she also needed surgery to remove a benign lipoma. We raised funds to help pay for her treatment.",
+bonyaText2:"After everything she endured, Bonya finally found her way to Vienna and into a loving, responsible family. Now she enjoys walks in her warm little jacket, sleeps on the sofa wrapped in a blanket and receives all the health check-ups she needs.",
+bonyaHappy:"A new life filled with care, comfort and love. ❤️",
+
+photoArchie:"PHOTO OF ARCHIE HERE",
+archieAge:"Our happy boy",
+archieText:"Our Archie is home in Copenhagen! He has started a new chapter of his life, surrounded by the love and care every dog deserves.",
+archieHappy:"A new home, a new beginning. ❤️",
+
+finalTitle:"Every dog deserves a happy ending",
+finalText:"There are still dogs at RUKAVYCHKA waiting for their own families. Maybe their happy ending will begin with you.",
+finalDogs:"Meet our dogs",
+finalContact:"Contact us",
+footerText:"Every dog deserves a loving home."
+},
+
+uk:{
+navHome:"Головна",
+navDogs:"Наші собаки",
+navStory:"Наша історія",
+navHelp:"Допомогти",
+navLife:"Життя притулку",
+navAdoptions:"Прилаштування",
+navContacts:"Контакти",
+
+heroTitle:"Щасливі історії",
+heroText:"Кожна історія порятунку заслуговує на щасливе завершення. Це собаки, які знайшли свої родини, безпечний дім і любов, на яку так довго чекали.",
+
+introTitle:"Від порятунку до рідного дому",
+introText:"За кожною щасливою історією стоїть цілий шлях. Деякі з цих собак пережили дуже складні часи, але сьогодні мають теплі лежанки, люблячі родини та щасливе майбутнє.",
+
+photoFedya:"ФОТО ФЕДІ ТУТ",
+fedyaAge:"Близько 5 років",
+fedyaText1:"Федю врятували з жахливої перетримки, де він провів пів року в маленькій клітці. У нього ще залишалися шви після кастрації та була велика мозоль на грудях через те, що він майже не міг рухатися.",
+fedyaText2:"Сьогодні Федя живе в Будапешті зі своєю родиною, де він — найулюбленіший хлопчик. У нього є власний диван, він спить у ліжку з господинею під теплою ковдрою та їздить гуляти до лісу.",
+fedyaHappy:"Власний дім і вся любов, на яку він заслуговує. 🩵",
+
+photoLenya:"ФОТО ЛЕНІ ТУТ",
+lenyaAge:"Близько 5–6 років",
+lenyaText1:"Наш милий Льоня приїхав до Відня до своєї сестрички Неллі. Тепер вони найкращі друзі й нарешті можуть насолоджуватися життям разом.",
+lenyaText2:"Льоня тепер ходить на грумінг, їсть якісний корм, який не викликає алергії, гуляє вулицями Відня та проводить затишні вечори на дивані з мамою й татом.",
+lenyaHappy:"Знову разом, у безпеці та любові. ❤️",
+
+photoBonya:"ФОТО БОНІ ТУТ",
+bonyaAge:"Близько 7 років",
+bonyaText1:"Боню врятували військові з Краматорська. Їй довелося пережити дуже багато: їй відстрелили хвіст, у неї були серйозні проблеми із зубами, через які вона не могла їсти, а також їй видаляли доброякісну ліпому. Ми збирали кошти на її операцію та лікування.",
+bonyaText2:"Після всього пережитого Боня нарешті опинилася у Відні в люблячій та відповідальній родині. Тепер вона гуляє у тепленькій курточці, спить на дивані під пледом і проходить усі необхідні обстеження.",
+bonyaHappy:"Нове життя, сповнене турботи, затишку та любові. ❤️",
+
+photoArchie:"ФОТО АРЧІ ТУТ",
+archieAge:"Наш щасливий хлопчик",
+archieText:"Наш Арчі тепер удома в Копенгагені! Для нього почалася нова сторінка життя, сповнена любові та турботи, на які заслуговує кожен собака.",
+archieHappy:"Новий дім, новий початок. ❤️",
+
+finalTitle:"Кожен собака заслуговує на щасливе завершення",
+finalText:"У RUKAVYCHKA ще залишаються собаки, які чекають на свої родини. Можливо, їхня щаслива історія почнеться саме з вас.",
+finalDogs:"Познайомитися із собаками",
+finalContact:"Зв'язатися з нами",
+footerText:"Кожен собака заслуговує на люблячий дім."
+},
+
+ru:{
+navHome:"Главная",
+navDogs:"Наши собаки",
+navStory:"Наша история",
+navHelp:"Помочь",
+navLife:"Жизнь приюта",
+navAdoptions:"Пристройство",
+navContacts:"Контакты",
+
+heroTitle:"Счастливые истории",
+heroText:"Каждая история спасения заслуживает счастливого финала. Это собаки, которые нашли свои семьи, безопасный дом и любовь, которой так долго ждали.",
+
+introTitle:"От спасения до родного дома",
+introText:"За каждой счастливой историей стоит целый путь. Некоторые из этих собак пережили очень трудные времена, но сегодня у них есть тёплые лежанки, любящие семьи и счастливое будущее.",
+
+photoFedya:"ФОТО ФЕДИ ЗДЕСЬ",
+fedyaAge:"Около 5 лет",
+fedyaText1:"Федю спасли с ужасной передержки, где он провёл полгода в маленькой клетке. У него ещё оставались швы после кастрации и была большая мозоль на груди из-за того, что он почти не мог двигаться.",
+fedyaText2:"Сегодня Федя живёт в Будапеште со своей семьёй, где он самый любимый мальчик. У него есть собственный диван, он спит с хозяйкой в кровати под тёплым одеялом и ездит гулять в лес.",
+fedyaHappy:"Свой дом и вся любовь, которой он заслуживает. 🩵",
+
+photoLenya:"ФОТО ЛЁНИ ЗДЕСЬ",
+lenyaAge:"Около 5–6 лет",
+lenyaText1:"Наш милый Лёня приехал в Вену к своей сестричке Нелли. Теперь они лучшие друзья и наконец могут наслаждаться жизнью вместе.",
+lenyaText2:"Лёня теперь ходит на груминг, ест качественный корм, который не вызывает аллергии, гуляет по улицам Вены и проводит уютные вечера на диване с мамой и папой.",
+lenyaHappy:"Снова вместе, в безопасности и любви. ❤️",
+
+photoBonya:"ФОТО БОНИ ЗДЕСЬ",
+bonyaAge:"Около 7 лет",
+bonyaText1:"Боню спасли военные из Краматорска. Ей пришлось пережить очень многое: ей отстрелили хвост, у неё были серьёзные проблемы с зубами, из-за которых она не могла есть, а также ей удаляли доброкачественную липому. Мы собирали деньги на её операцию и лечение.",
+bonyaText2:"После всего пережитого Боня наконец оказалась в Вене в любящей и ответственной семье. Теперь она гуляет в тёплой курточке, спит на диване под пледом и проходит все необходимые обследования.",
+bonyaHappy:"Новая жизнь, наполненная заботой, уютом и любовью. ❤️",
+
+photoArchie:"ФОТО АРЧИ ЗДЕСЬ",
+archieAge:"Наш счастливый мальчик",
+archieText:"Наш Арчи теперь дома в Копенгагене! Для него началась новая глава жизни, наполненная любовью и заботой, которых заслуживает каждая собака.",
+archieHappy:"Новый дом, новое начало. ❤️",
+
+finalTitle:"Каждая собака заслуживает счастливого финала",
+finalText:"В RUKAVYCHKA ещё остаются собаки, которые ждут свои семьи. Возможно, их счастливая история начнётся именно с вас.",
+finalDogs:"Познакомиться с собаками",
+finalContact:"Связаться с нами",
+footerText:"Каждая собака заслуживает любящий дом."
+}
+
+};
+
+function setLanguage(lang){
+  document.documentElement.lang=lang;
+
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key=el.getAttribute("data-i18n");
+    if(translations[lang] && translations[lang][key]){
+      el.textContent=translations[lang][key];
+    }
+  });
+
+  document.querySelectorAll(".languages button").forEach(btn=>{
+    btn.classList.toggle("active",btn.textContent.toLowerCase()===lang);
+  });
+
+  localStorage.setItem("rukavichka-language",lang);
+}
+
+const savedLanguage=localStorage.getItem("rukavichka-language")||"en";
+setLanguage(savedLanguage);
+</script>
+
+</body>
+</html>
